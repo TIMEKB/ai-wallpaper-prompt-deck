@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "deckVersion": 2,
+  "deckVersion": 3,
   "minAppVersionCode": 1,
   "deckUrl": "https://timekb.github.io/ai-wallpaper-prompt-deck/decks/prompt_deck_v1.json",
-  "sha256": "b7161697489fb92fe577c7894b5deda9c15ad47eabd291b060d72387cc146283",
-  "updatedAt": "2026-06-12T00:00:00+08:00",
-  "releaseNote": "云提示词表 v2：新增自然现象、世界景观和壁纸场景方向"
+  "sha256": "b3ee3b5114a5b409eff4d767e9fe923c595960c6eecebb0c166e2ed632607cf4",
+  "updatedAt": "2026-06-13T00:00:00+08:00",
+  "releaseNote": "云提示词表 v3：新增参考 / 艺术作品大类并支持随机"
 }

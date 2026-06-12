@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "deckVersion": 2,
+  "deckVersion": 3,
   "defaultNegativePrompt": "低质量，模糊，水印，文字，标志，结构错误，多余手指，脸部扭曲，画面脏乱",
   "slots": [
     {
@@ -43,6 +43,12 @@
     {
       "id": "Mood",
       "label": "氛围",
+      "supportsRandom": true,
+      "supportsRealtime": false
+    },
+    {
+      "id": "Reference",
+      "label": "参考",
       "supportsRandom": true,
       "supportsRealtime": false
     }
@@ -893,6 +899,150 @@
       "slot": "Mood",
       "title": "诡异",
       "prompt": "诡异氛围，扭曲元素与冷光"
+    },
+    {
+      "id": "reference_van_gogh",
+      "slot": "Reference",
+      "title": "梵高",
+      "prompt": "参考梵高艺术作品，旋转星空笔触、厚重油彩与强烈互补色"
+    },
+    {
+      "id": "reference_monet",
+      "slot": "Reference",
+      "title": "莫奈",
+      "prompt": "参考莫奈艺术作品，印象派光色、柔和空气感与水面反光"
+    },
+    {
+      "id": "reference_matisse",
+      "slot": "Reference",
+      "title": "马蒂斯",
+      "prompt": "参考马蒂斯艺术作品，明快色块、装饰性线条与平面构成"
+    },
+    {
+      "id": "reference_klimt",
+      "slot": "Reference",
+      "title": "克里姆特",
+      "prompt": "参考克里姆特艺术作品，金色装饰纹样、华丽平面图案与优雅人物感"
+    },
+    {
+      "id": "reference_mucha",
+      "slot": "Reference",
+      "title": "穆夏",
+      "prompt": "参考穆夏艺术作品，新艺术风格曲线、花卉边框与装饰海报感"
+    },
+    {
+      "id": "reference_turner",
+      "slot": "Reference",
+      "title": "透纳",
+      "prompt": "参考透纳艺术作品，浪漫主义光雾、戏剧化天空与流动色彩"
+    },
+    {
+      "id": "reference_vermeer",
+      "slot": "Reference",
+      "title": "维米尔",
+      "prompt": "参考维米尔艺术作品，安静室内光、细腻侧窗照明与克制构图"
+    },
+    {
+      "id": "reference_rembrandt",
+      "slot": "Reference",
+      "title": "伦勃朗",
+      "prompt": "参考伦勃朗艺术作品，深色背景、暖色聚光与厚重明暗对比"
+    },
+    {
+      "id": "reference_da_vinci",
+      "slot": "Reference",
+      "title": "达芬奇",
+      "prompt": "参考达芬奇艺术作品，文艺复兴构图、柔和明暗法与精密结构"
+    },
+    {
+      "id": "reference_michelangelo",
+      "slot": "Reference",
+      "title": "米开朗基罗",
+      "prompt": "参考米开朗基罗艺术作品，雕塑感体积、宏大姿态与古典力量"
+    },
+    {
+      "id": "reference_hokusai",
+      "slot": "Reference",
+      "title": "葛饰北斋",
+      "prompt": "参考葛饰北斋艺术作品，浮世绘线条、浪潮动势与平面色块"
+    },
+    {
+      "id": "reference_hiroshige",
+      "slot": "Reference",
+      "title": "歌川广重",
+      "prompt": "参考歌川广重艺术作品，浮世绘风景、雨雪气氛与纵深街景"
+    },
+    {
+      "id": "reference_wang_ximeng",
+      "slot": "Reference",
+      "title": "王希孟",
+      "prompt": "参考王希孟艺术作品，青绿山水、层叠远山与华丽矿物色"
+    },
+    {
+      "id": "reference_zhang_zeduan",
+      "slot": "Reference",
+      "title": "张择端",
+      "prompt": "参考张择端艺术作品，长卷式城市生活、细密人物与古典街市空间"
+    },
+    {
+      "id": "reference_qi_baishi",
+      "slot": "Reference",
+      "title": "齐白石",
+      "prompt": "参考齐白石艺术作品，写意水墨、简练造型与生动自然趣味"
+    },
+    {
+      "id": "reference_zhang_daqian",
+      "slot": "Reference",
+      "title": "张大千",
+      "prompt": "参考张大千艺术作品，泼彩山水、浓烈矿物色与大面积晕染"
+    },
+    {
+      "id": "reference_imaishi_hiroyuki",
+      "slot": "Reference",
+      "title": "今石洋之",
+      "prompt": "参考今石洋之艺术作品，高能动画张力、夸张透视与锐利动势"
+    },
+    {
+      "id": "reference_miyazaki_hayao",
+      "slot": "Reference",
+      "title": "宫崎骏",
+      "prompt": "参考宫崎骏艺术作品，手绘动画质感、自然景观与温柔幻想氛围"
+    },
+    {
+      "id": "reference_shinkai_makoto",
+      "slot": "Reference",
+      "title": "新海诚",
+      "prompt": "参考新海诚艺术作品，通透天空、强烈逆光与细腻青春色彩"
+    },
+    {
+      "id": "reference_otomo_katsuhiro",
+      "slot": "Reference",
+      "title": "大友克洋",
+      "prompt": "参考大友克洋艺术作品，硬核科幻城市、机械细节与电影式压迫感"
+    },
+    {
+      "id": "reference_oshii_mamoru",
+      "slot": "Reference",
+      "title": "押井守",
+      "prompt": "参考押井守艺术作品，冷静科幻构图、雨夜城市与哲思氛围"
+    },
+    {
+      "id": "reference_yuasa_masaaki",
+      "slot": "Reference",
+      "title": "汤浅政明",
+      "prompt": "参考汤浅政明艺术作品，自由变形线条、跳跃色彩与流动节奏"
+    },
+    {
+      "id": "reference_anno_hideaki",
+      "slot": "Reference",
+      "title": "庵野秀明",
+      "prompt": "参考庵野秀明艺术作品，机甲构图、强烈剪影与紧张镜头语言"
+    },
+    {
+      "id": "reference_clamp",
+      "slot": "Reference",
+      "title": "CLAMP",
+      "prompt": "参考 CLAMP 艺术作品，华丽人物线条、长身比例与装饰性服饰"
     }
   ]
 }
