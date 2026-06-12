@@ -1,0 +1,147 @@
+name: Prompt deck submit
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  apply:
+    if: ${{ github.event.issue.state == 'open' && github.event.issue.user.login == 'TIMEKB' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: apply
+        continue-on-error: true
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import re
+          import sys
+          from datetime import datetime, timezone, timedelta
+          from pathlib import Path
+
+          marker = "ai-wallpaper-prompt-deck-submit:v1"
+          body = os.environ.get("ISSUE_BODY", "")
+          issue_number = os.environ.get("ISSUE_NUMBER", "0")
+          match = re.search(r"<!--\s*" + re.escape(marker) + r"\s*(\{.*?\})\s*-->", body, re.S)
+          if not match:
+              Path("comment.md").write_text("没有找到 App 提交数据，请从 App 重新打开提交页。", encoding="utf-8")
+              sys.exit(1)
+
+          try:
+              payload = json.loads(match.group(1))
+              if payload.get("type") != "prompt_deck_card" or payload.get("schemaVersion") != 1:
+                  raise ValueError("提交数据类型或版本不支持")
+              slot = payload["slot"]
+              card = payload["card"]
+          except Exception as error:
+              Path("comment.md").write_text(f"提交数据解析失败：{error}", encoding="utf-8")
+              sys.exit(1)
+
+          def clean_id(value):
+              value = re.sub(r"[^A-Za-z0-9_-]+", "_", str(value or "").strip()).strip("_")
+              return value
+
+          slot_id = clean_id(slot.get("id"))
+          slot_label = str(slot.get("label") or "").strip()
+          card_id = clean_id(card.get("id"))
+          card_title = str(card.get("title") or "").strip()
+          card_prompt = str(card.get("prompt") or "").strip()
+          if not slot_id or not slot_label or not card_id or not card_title or not card_prompt:
+              Path("comment.md").write_text("大类 ID、名称、子标签名称和 Prompt 都不能为空。", encoding="utf-8")
+              sys.exit(1)
+          if len(card_prompt) > 300:
+              Path("comment.md").write_text("Prompt 超过 300 字，请缩短后重新提交。", encoding="utf-8")
+              sys.exit(1)
+
+          deck_path = Path("decks/prompt_deck_v1.json")
+          manifest_path = Path("manifest.json")
+          deck = json.loads(deck_path.read_text(encoding="utf-8"))
+          slots = deck.setdefault("slots", [])
+          cards = deck.setdefault("cards", [])
+
+          slot_ids = {item.get("id") for item in slots}
+          if slot_id not in slot_ids:
+              slots.append({
+                  "id": slot_id,
+                  "label": slot_label,
+                  "supportsRandom": bool(slot.get("supportsRandom", True)),
+                  "supportsRealtime": bool(slot.get("supportsRealtime", False)),
+              })
+
+          existing_card_ids = {item.get("id") for item in cards}
+          if card_id in existing_card_ids:
+              base = card_id
+              card_id = f"{base}_{issue_number}"
+              suffix = 2
+              while card_id in existing_card_ids:
+                  card_id = f"{base}_{issue_number}_{suffix}"
+                  suffix += 1
+
+          cards.append({
+              "id": card_id,
+              "slot": slot_id,
+              "title": card_title,
+              "prompt": card_prompt,
+          })
+
+          deck["deckVersion"] = int(deck.get("deckVersion", 0)) + 1
+          deck_text = json.dumps(deck, ensure_ascii=False, indent=2, separators=(",", ": ")) + "\n"
+          deck_path.write_text(deck_text, encoding="utf-8")
+          digest = hashlib.sha256(deck_text.encode("utf-8")).hexdigest()
+
+          updated_at = datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds")
+          manifest = {
+              "schemaVersion": 1,
+              "deckVersion": deck["deckVersion"],
+              "minAppVersionCode": 1,
+              "deckUrl": "https://timekb.github.io/ai-wallpaper-prompt-deck/decks/prompt_deck_v1.json",
+              "sha256": digest,
+              "updatedAt": updated_at,
+              "releaseNote": f"云提示词表 v{deck['deckVersion']}：新增 {slot_label} / {card_title}",
+          }
+          manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2, separators=(",", ": ")) + "\n", encoding="utf-8")
+
+          Path("commit-message.txt").write_text(f"Add prompt card {slot_label} / {card_title}\n", encoding="utf-8")
+          Path("comment.md").write_text(
+              f"已提交云提示词表 v{deck['deckVersion']}：`{slot_label} / {card_title}`。\n\n"
+              f"App 不会自动刷新，请在 App 设置页手动点击“检查提示词更新”验证。",
+              encoding="utf-8",
+          )
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"deck_version={deck['deckVersion']}\n")
+          PY
+
+      - name: Commit deck update
+        if: steps.apply.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manifest.json decks/prompt_deck_v1.json
+          git commit -F commit-message.txt
+          git push
+
+      - name: Mark issue applied
+        if: steps.apply.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" --body-file comment.md
+          gh issue close "${{ github.event.issue.number }}" --reason completed
+
+      - name: Comment failure
+        if: steps.apply.outcome != 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" --body-file comment.md
