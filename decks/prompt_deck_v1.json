@@ -1,0 +1,898 @@
+{
+  "schemaVersion": 1,
+  "deckVersion": 2,
+  "defaultNegativePrompt": "低质量，模糊，水印，文字，标志，结构错误，多余手指，脸部扭曲，画面脏乱",
+  "slots": [
+    {
+      "id": "Time",
+      "label": "时间",
+      "supportsRandom": true,
+      "supportsRealtime": true,
+      "realtimeStrategy": "local_time"
+    },
+    {
+      "id": "Weather",
+      "label": "天气",
+      "supportsRandom": true,
+      "supportsRealtime": false
+    },
+    {
+      "id": "Place",
+      "label": "地点",
+      "supportsRandom": true,
+      "supportsRealtime": false
+    },
+    {
+      "id": "Subject",
+      "label": "主体",
+      "supportsRandom": true,
+      "supportsRealtime": false
+    },
+    {
+      "id": "Style",
+      "label": "风格",
+      "supportsRandom": true,
+      "supportsRealtime": false
+    },
+    {
+      "id": "Theme",
+      "label": "主题",
+      "supportsRandom": true,
+      "supportsRealtime": false
+    },
+    {
+      "id": "Mood",
+      "label": "氛围",
+      "supportsRandom": true,
+      "supportsRealtime": false
+    }
+  ],
+  "cards": [
+    {
+      "id": "time_dawn",
+      "slot": "Time",
+      "title": "黎明",
+      "prompt": "黎明时分，柔和晨光，空气清新"
+    },
+    {
+      "id": "time_morning",
+      "slot": "Time",
+      "title": "清晨",
+      "prompt": "清晨薄雾，淡蓝晨光，安静柔和"
+    },
+    {
+      "id": "time_day",
+      "slot": "Time",
+      "title": "白天",
+      "prompt": "白天，明亮自然光，细节清晰"
+    },
+    {
+      "id": "time_noon",
+      "slot": "Time",
+      "title": "正午",
+      "prompt": "正午烈日，高对比阴影，强烈光感"
+    },
+    {
+      "id": "time_afternoon",
+      "slot": "Time",
+      "title": "午后",
+      "prompt": "午后斜阳，长长光影，温柔氛围"
+    },
+    {
+      "id": "time_dusk",
+      "slot": "Time",
+      "title": "黄昏",
+      "prompt": "黄昏，金色余晖，温暖光影"
+    },
+    {
+      "id": "time_sunset",
+      "slot": "Time",
+      "title": "傍晚",
+      "prompt": "傍晚晚霞，玫瑰金光，浪漫天空"
+    },
+    {
+      "id": "time_twilight",
+      "slot": "Time",
+      "title": "暮色",
+      "prompt": "暮色四合，紫色渐变，朦胧诗意"
+    },
+    {
+      "id": "time_night",
+      "slot": "Time",
+      "title": "夜晚",
+      "prompt": "夜晚，深色环境，灯光层次丰富"
+    },
+    {
+      "id": "time_midnight",
+      "slot": "Time",
+      "title": "深夜",
+      "prompt": "深夜寂静，月光清冷，星点点缀"
+    },
+    {
+      "id": "time_predawn",
+      "slot": "Time",
+      "title": "凌晨",
+      "prompt": "凌晨时分，蓝紫色调，星辰未褪"
+    },
+    {
+      "id": "time_daybreak",
+      "slot": "Time",
+      "title": "破晓",
+      "prompt": "破晓微光，地平线橙红，希望感"
+    },
+    {
+      "id": "weather_sunny",
+      "slot": "Weather",
+      "title": "晴天",
+      "prompt": "晴朗天气，蓝天白云，光照充足"
+    },
+    {
+      "id": "weather_cloudy",
+      "slot": "Weather",
+      "title": "阴天",
+      "prompt": "阴天，厚密云层与柔和漫射光"
+    },
+    {
+      "id": "weather_rain",
+      "slot": "Weather",
+      "title": "雨天",
+      "prompt": "雨天，湿润街道与晶莹水珠"
+    },
+    {
+      "id": "weather_storm_rain",
+      "slot": "Weather",
+      "title": "暴雨",
+      "prompt": "暴雨倾盆，水帘与四溅水花"
+    },
+    {
+      "id": "weather_snow",
+      "slot": "Weather",
+      "title": "雪天",
+      "prompt": "飘雪，雪花纷飞与白色覆盖"
+    },
+    {
+      "id": "weather_blizzard",
+      "slot": "Weather",
+      "title": "暴雪",
+      "prompt": "暴雪呼啸，能见度低的雪景"
+    },
+    {
+      "id": "weather_fog",
+      "slot": "Weather",
+      "title": "雾天",
+      "prompt": "浓雾弥漫，朦胧轮廓与神秘感"
+    },
+    {
+      "id": "weather_storm",
+      "slot": "Weather",
+      "title": "风暴",
+      "prompt": "风暴来袭，乌云压顶，气氛压抑"
+    },
+    {
+      "id": "weather_rainbow",
+      "slot": "Weather",
+      "title": "彩虹",
+      "prompt": "雨后彩虹，七色横跨天空"
+    },
+    {
+      "id": "weather_aurora",
+      "slot": "Weather",
+      "title": "极光",
+      "prompt": "极光闪烁，绚烂极地夜空"
+    },
+    {
+      "id": "weather_sandstorm",
+      "slot": "Weather",
+      "title": "沙尘暴",
+      "prompt": "沙尘暴，昏黄天空与扬沙"
+    },
+    {
+      "id": "weather_thunder",
+      "slot": "Weather",
+      "title": "雷电",
+      "prompt": "雷电交加，闪电劈裂天空"
+    },
+    {
+      "id": "weather_meteor_shower",
+      "slot": "Weather",
+      "title": "流星雨",
+      "prompt": "流星雨划过夜空，星轨细密，画面安静"
+    },
+    {
+      "id": "weather_sea_of_clouds",
+      "slot": "Weather",
+      "title": "云海",
+      "prompt": "层层云海翻涌，远处天光透出"
+    },
+    {
+      "id": "weather_sunshower",
+      "slot": "Weather",
+      "title": "太阳雨",
+      "prompt": "太阳雨，明亮日光穿过细雨与水珠"
+    },
+    {
+      "id": "weather_bioluminescence",
+      "slot": "Weather",
+      "title": "蓝眼泪",
+      "prompt": "夜色海岸出现蓝色生物荧光，浪花微亮"
+    },
+    {
+      "id": "place_outdoor",
+      "slot": "Place",
+      "title": "户外",
+      "prompt": "户外开阔环境，自然背景"
+    },
+    {
+      "id": "place_city",
+      "slot": "Place",
+      "title": "城市",
+      "prompt": "城市街区，高楼、街灯和生活痕迹"
+    },
+    {
+      "id": "place_space",
+      "slot": "Place",
+      "title": "太空",
+      "prompt": "太空环境，星空、飞船或空间站"
+    },
+    {
+      "id": "place_indoor",
+      "slot": "Place",
+      "title": "室内",
+      "prompt": "室内空间，家具、窗光和生活细节"
+    },
+    {
+      "id": "place_seaside",
+      "slot": "Place",
+      "title": "海边",
+      "prompt": "海边沙滩，海浪与远方地平线"
+    },
+    {
+      "id": "place_mountain",
+      "slot": "Place",
+      "title": "山野",
+      "prompt": "群山起伏，云雾缭绕的山林"
+    },
+    {
+      "id": "place_desert",
+      "slot": "Place",
+      "title": "沙漠",
+      "prompt": "广袤沙漠，沙丘与稀疏植物"
+    },
+    {
+      "id": "place_snowfield",
+      "slot": "Place",
+      "title": "雪原",
+      "prompt": "雪原大地，纯白世界与冷蓝光"
+    },
+    {
+      "id": "place_forest",
+      "slot": "Place",
+      "title": "森林",
+      "prompt": "茂密森林，树荫斑驳与林间光"
+    },
+    {
+      "id": "place_grassland",
+      "slot": "Place",
+      "title": "草原",
+      "prompt": "辽阔草原，风吹草动与远处天空"
+    },
+    {
+      "id": "place_river",
+      "slot": "Place",
+      "title": "河流",
+      "prompt": "蜿蜒河流，水面倒映周边景物"
+    },
+    {
+      "id": "place_lake",
+      "slot": "Place",
+      "title": "湖泊",
+      "prompt": "平静湖泊，倒影清澈，岸边植被"
+    },
+    {
+      "id": "place_countryside",
+      "slot": "Place",
+      "title": "乡村",
+      "prompt": "田园乡村，稻田与远处的炊烟"
+    },
+    {
+      "id": "place_oldtown",
+      "slot": "Place",
+      "title": "古镇",
+      "prompt": "古色古香的小镇，青石街道"
+    },
+    {
+      "id": "place_campus",
+      "slot": "Place",
+      "title": "校园",
+      "prompt": "校园场景，教学楼与林荫道"
+    },
+    {
+      "id": "place_cafe",
+      "slot": "Place",
+      "title": "咖啡馆",
+      "prompt": "温馨咖啡馆，木质装饰与暖灯"
+    },
+    {
+      "id": "place_library",
+      "slot": "Place",
+      "title": "图书馆",
+      "prompt": "古典图书馆，高耸书架与斜光"
+    },
+    {
+      "id": "place_ruins",
+      "slot": "Place",
+      "title": "废墟",
+      "prompt": "神秘废墟，残垣与攀爬植被"
+    },
+    {
+      "id": "place_subway",
+      "slot": "Place",
+      "title": "地铁",
+      "prompt": "地铁站台，金属反光与人影"
+    },
+    {
+      "id": "place_church",
+      "slot": "Place",
+      "title": "教堂",
+      "prompt": "哥特教堂，彩绘玻璃与高耸穹顶"
+    },
+    {
+      "id": "place_shrine",
+      "slot": "Place",
+      "title": "神社",
+      "prompt": "日式神社，鸟居与石灯笼"
+    },
+    {
+      "id": "place_harbor",
+      "slot": "Place",
+      "title": "港口",
+      "prompt": "海港码头，集装箱与吊车"
+    },
+    {
+      "id": "place_rooftop",
+      "slot": "Place",
+      "title": "天台",
+      "prompt": "高楼天台，俯瞰城市与天空"
+    },
+    {
+      "id": "place_underwater",
+      "slot": "Place",
+      "title": "海底",
+      "prompt": "海底世界，珊瑚礁与游动鱼群"
+    },
+    {
+      "id": "place_rooftop_garden",
+      "slot": "Place",
+      "title": "天台花园",
+      "prompt": "高楼天台花园，绿植、花架与开阔天空"
+    },
+    {
+      "id": "place_rainy_window",
+      "slot": "Place",
+      "title": "雨窗边",
+      "prompt": "雨天窗边，玻璃水痕与柔和室内光"
+    },
+    {
+      "id": "place_grand_canyon",
+      "slot": "Place",
+      "title": "大峡谷",
+      "prompt": "宏大峡谷地貌，层叠岩壁与远方光线"
+    },
+    {
+      "id": "place_glacier_lagoon",
+      "slot": "Place",
+      "title": "冰川湖",
+      "prompt": "冰川湖泊，漂浮蓝冰与冷色反光"
+    },
+    {
+      "id": "place_lavender_field",
+      "slot": "Place",
+      "title": "薰衣草田",
+      "prompt": "大片薰衣草田延伸到地平线，紫色花浪"
+    },
+    {
+      "id": "place_mirror_salt_flat",
+      "slot": "Place",
+      "title": "天空之镜",
+      "prompt": "镜面盐湖倒映天空，地平线极简开阔"
+    },
+    {
+      "id": "subject_human",
+      "slot": "Subject",
+      "title": "人",
+      "prompt": "原创人物主体，姿态自然，服装细节清楚"
+    },
+    {
+      "id": "subject_girl",
+      "slot": "Subject",
+      "title": "少女",
+      "prompt": "清新少女角色，自然神态"
+    },
+    {
+      "id": "subject_boy",
+      "slot": "Subject",
+      "title": "少年",
+      "prompt": "阳光少年角色，干练姿态"
+    },
+    {
+      "id": "subject_warrior",
+      "slot": "Subject",
+      "title": "战士",
+      "prompt": "战士角色，装备与坚毅神情"
+    },
+    {
+      "id": "subject_mage",
+      "slot": "Subject",
+      "title": "法师",
+      "prompt": "魔法师角色，法袍与法术特效"
+    },
+    {
+      "id": "subject_robot",
+      "slot": "Subject",
+      "title": "机器人",
+      "prompt": "机械人形，关节细节与金属质感"
+    },
+    {
+      "id": "subject_animal",
+      "slot": "Subject",
+      "title": "动物",
+      "prompt": "动物主体，表情生动，毛发或鳞片细节"
+    },
+    {
+      "id": "subject_cat",
+      "slot": "Subject",
+      "title": "猫",
+      "prompt": "灵动可爱的猫，毛发柔软"
+    },
+    {
+      "id": "subject_dog",
+      "slot": "Subject",
+      "title": "狗",
+      "prompt": "活泼忠诚的狗，眼神温暖"
+    },
+    {
+      "id": "subject_dragon",
+      "slot": "Subject",
+      "title": "龙",
+      "prompt": "神秘巨龙，鳞片与气势"
+    },
+    {
+      "id": "subject_bird",
+      "slot": "Subject",
+      "title": "鸟",
+      "prompt": "飞鸟主体，羽毛细节与动态"
+    },
+    {
+      "id": "subject_fox",
+      "slot": "Subject",
+      "title": "狐狸",
+      "prompt": "灵巧狐狸，尾巴蓬松"
+    },
+    {
+      "id": "subject_whale",
+      "slot": "Subject",
+      "title": "鲸鱼",
+      "prompt": "巨大鲸鱼，水下身姿"
+    },
+    {
+      "id": "subject_vehicle",
+      "slot": "Subject",
+      "title": "车辆",
+      "prompt": "车辆主体，结构清晰，材质反光"
+    },
+    {
+      "id": "subject_motorcycle",
+      "slot": "Subject",
+      "title": "摩托车",
+      "prompt": "个性摩托车，金属与皮革质感"
+    },
+    {
+      "id": "subject_aircraft",
+      "slot": "Subject",
+      "title": "飞行器",
+      "prompt": "未来飞行器，流线型机身"
+    },
+    {
+      "id": "subject_ship",
+      "slot": "Subject",
+      "title": "船舶",
+      "prompt": "海上船舶，桅杆与帆布"
+    },
+    {
+      "id": "subject_building",
+      "slot": "Subject",
+      "title": "建筑",
+      "prompt": "建筑主体，空间层次和结构明确"
+    },
+    {
+      "id": "subject_castle",
+      "slot": "Subject",
+      "title": "城堡",
+      "prompt": "雄伟城堡，塔楼与城墙"
+    },
+    {
+      "id": "subject_tower",
+      "slot": "Subject",
+      "title": "塔",
+      "prompt": "高耸塔楼，层层结构"
+    },
+    {
+      "id": "subject_tree",
+      "slot": "Subject",
+      "title": "树",
+      "prompt": "巨大古树，枝叶繁茂"
+    },
+    {
+      "id": "subject_flower",
+      "slot": "Subject",
+      "title": "花",
+      "prompt": "盛开花卉，花瓣细腻"
+    },
+    {
+      "id": "subject_crystal",
+      "slot": "Subject",
+      "title": "水晶",
+      "prompt": "透明水晶，折射光线"
+    },
+    {
+      "id": "subject_food",
+      "slot": "Subject",
+      "title": "美食",
+      "prompt": "精致美食，色香俱全"
+    },
+    {
+      "id": "subject_floating_island",
+      "slot": "Subject",
+      "title": "漂浮岛",
+      "prompt": "漂浮小岛主体，草木、瀑布和云层环绕"
+    },
+    {
+      "id": "style_cel",
+      "slot": "Style",
+      "title": "赛璐璐",
+      "prompt": "赛璐璐画风，线条干净，色块清晰"
+    },
+    {
+      "id": "style_oil",
+      "slot": "Style",
+      "title": "油画",
+      "prompt": "油画质感，厚重笔触，色彩层次丰富"
+    },
+    {
+      "id": "style_watercolor",
+      "slot": "Style",
+      "title": "水彩",
+      "prompt": "水彩质感，边缘柔和，颜色透明"
+    },
+    {
+      "id": "style_realistic",
+      "slot": "Style",
+      "title": "写实",
+      "prompt": "写实光影和材质，细节自然可信"
+    },
+    {
+      "id": "style_pixel",
+      "slot": "Style",
+      "title": "像素画",
+      "prompt": "像素艺术，方块色块与复古质感"
+    },
+    {
+      "id": "style_lineart",
+      "slot": "Style",
+      "title": "线稿",
+      "prompt": "干净线稿，细致线条与留白"
+    },
+    {
+      "id": "style_sketch",
+      "slot": "Style",
+      "title": "素描",
+      "prompt": "铅笔素描，灰阶层次与笔触"
+    },
+    {
+      "id": "style_thickpaint",
+      "slot": "Style",
+      "title": "厚涂",
+      "prompt": "厚涂画风，立体笔触与饱满色彩"
+    },
+    {
+      "id": "style_illustration",
+      "slot": "Style",
+      "title": "插画",
+      "prompt": "商业插画风，清新构图与扁平色"
+    },
+    {
+      "id": "style_manga",
+      "slot": "Style",
+      "title": "漫画",
+      "prompt": "黑白漫画风，网点与强对比"
+    },
+    {
+      "id": "style_3d",
+      "slot": "Style",
+      "title": "3D渲染",
+      "prompt": "三维渲染，立体光影与材质"
+    },
+    {
+      "id": "style_lowpoly",
+      "slot": "Style",
+      "title": "低多边形",
+      "prompt": "低多边形风，几何块面"
+    },
+    {
+      "id": "style_surreal",
+      "slot": "Style",
+      "title": "超现实",
+      "prompt": "超现实主义，奇幻意象与扭曲空间"
+    },
+    {
+      "id": "style_impressionism",
+      "slot": "Style",
+      "title": "印象派",
+      "prompt": "印象派风，光斑笔触与色彩呼吸"
+    },
+    {
+      "id": "style_ukiyoe",
+      "slot": "Style",
+      "title": "浮世绘",
+      "prompt": "浮世绘风，平面色块与日式线条"
+    },
+    {
+      "id": "style_inkwash",
+      "slot": "Style",
+      "title": "水墨",
+      "prompt": "中国水墨，留白与晕染"
+    },
+    {
+      "id": "style_vaporwave",
+      "slot": "Style",
+      "title": "蒸汽波",
+      "prompt": "蒸汽波风，霓虹粉紫与复古元素"
+    },
+    {
+      "id": "style_flat",
+      "slot": "Style",
+      "title": "扁平",
+      "prompt": "扁平设计风，几何与单纯色块"
+    },
+    {
+      "id": "style_gothic",
+      "slot": "Style",
+      "title": "哥特",
+      "prompt": "哥特风，黑暗装饰与精致线条"
+    },
+    {
+      "id": "style_minimal",
+      "slot": "Style",
+      "title": "极简",
+      "prompt": "极简风格，留白与单纯造型"
+    },
+    {
+      "id": "style_film",
+      "slot": "Style",
+      "title": "胶片",
+      "prompt": "复古胶片风，颗粒感与暖色"
+    },
+    {
+      "id": "style_concept",
+      "slot": "Style",
+      "title": "概念画",
+      "prompt": "电影概念设计风，氛围感强烈"
+    },
+    {
+      "id": "theme_cyberpunk",
+      "slot": "Theme",
+      "title": "赛博朋克",
+      "prompt": "赛博朋克主题，霓虹、雨夜、未来科技"
+    },
+    {
+      "id": "theme_versailles",
+      "slot": "Theme",
+      "title": "凡尔赛",
+      "prompt": "凡尔赛宫廷主题，华丽装饰、金色细节"
+    },
+    {
+      "id": "theme_space_opera",
+      "slot": "Theme",
+      "title": "太空歌剧",
+      "prompt": "太空歌剧主题，宏大科幻、星舰和宇宙尺度"
+    },
+    {
+      "id": "theme_steampunk",
+      "slot": "Theme",
+      "title": "蒸汽朋克",
+      "prompt": "蒸汽朋克主题，齿轮、铜管、复古机械"
+    },
+    {
+      "id": "theme_wasteland",
+      "slot": "Theme",
+      "title": "末日废土",
+      "prompt": "末日废土主题，残破建筑与沙尘氛围"
+    },
+    {
+      "id": "theme_magic_academy",
+      "slot": "Theme",
+      "title": "魔法学院",
+      "prompt": "魔法学院主题，古堡与魔法元素"
+    },
+    {
+      "id": "theme_isekai",
+      "slot": "Theme",
+      "title": "异世界",
+      "prompt": "异世界冒险主题，奇幻种族与地图"
+    },
+    {
+      "id": "theme_pastoral",
+      "slot": "Theme",
+      "title": "田园",
+      "prompt": "田园主题，稻田、农舍与朴素生活"
+    },
+    {
+      "id": "theme_ocean",
+      "slot": "Theme",
+      "title": "海洋",
+      "prompt": "海洋主题，蓝色基调与海洋生物"
+    },
+    {
+      "id": "theme_polar",
+      "slot": "Theme",
+      "title": "极地",
+      "prompt": "极地主题，冰雪与极光"
+    },
+    {
+      "id": "theme_jungle",
+      "slot": "Theme",
+      "title": "丛林",
+      "prompt": "丛林主题，藤蔓与神秘动物"
+    },
+    {
+      "id": "theme_myth",
+      "slot": "Theme",
+      "title": "神话",
+      "prompt": "古典神话主题，神祇与传奇生物"
+    },
+    {
+      "id": "theme_xianxia",
+      "slot": "Theme",
+      "title": "仙侠",
+      "prompt": "东方仙侠主题，剑客与仙气云雾"
+    },
+    {
+      "id": "theme_japanese",
+      "slot": "Theme",
+      "title": "和风",
+      "prompt": "和风主题，樱花与日式建筑"
+    },
+    {
+      "id": "theme_future_city",
+      "slot": "Theme",
+      "title": "未来都市",
+      "prompt": "未来都市主题，飞行车与全息广告"
+    },
+    {
+      "id": "theme_mecha",
+      "slot": "Theme",
+      "title": "机甲",
+      "prompt": "机甲战争主题，巨型机械与战火"
+    },
+    {
+      "id": "theme_gothic",
+      "slot": "Theme",
+      "title": "哥特",
+      "prompt": "哥特主题，黑色装饰与神秘氛围"
+    },
+    {
+      "id": "theme_retro80s",
+      "slot": "Theme",
+      "title": "复古80s",
+      "prompt": "复古80s主题，霓虹与合成波美学"
+    },
+    {
+      "id": "theme_minimal",
+      "slot": "Theme",
+      "title": "极简",
+      "prompt": "极简主题，纯色背景与单一元素"
+    },
+    {
+      "id": "theme_fairytale",
+      "slot": "Theme",
+      "title": "童话",
+      "prompt": "童话主题，温馨可爱与魔法元素"
+    },
+    {
+      "id": "theme_noir",
+      "slot": "Theme",
+      "title": "黑色电影",
+      "prompt": "黑色电影主题，强烈光影与神秘人物"
+    },
+    {
+      "id": "theme_healing",
+      "slot": "Theme",
+      "title": "治愈系",
+      "prompt": "治愈系主题，柔和色调与温馨场景"
+    },
+    {
+      "id": "mood_healing",
+      "slot": "Mood",
+      "title": "治愈",
+      "prompt": "治愈氛围，温柔色调与安心感"
+    },
+    {
+      "id": "mood_lonely",
+      "slot": "Mood",
+      "title": "孤独",
+      "prompt": "孤独氛围，空旷场景与冷色调"
+    },
+    {
+      "id": "mood_mystery",
+      "slot": "Mood",
+      "title": "神秘",
+      "prompt": "神秘氛围，雾气与暗影"
+    },
+    {
+      "id": "mood_passion",
+      "slot": "Mood",
+      "title": "激情",
+      "prompt": "激情氛围，强烈色彩与动感"
+    },
+    {
+      "id": "mood_melancholy",
+      "slot": "Mood",
+      "title": "忧郁",
+      "prompt": "忧郁氛围，灰蓝色调与低饱和"
+    },
+    {
+      "id": "mood_peaceful",
+      "slot": "Mood",
+      "title": "宁静",
+      "prompt": "宁静氛围，柔光与对称构图"
+    },
+    {
+      "id": "mood_tense",
+      "slot": "Mood",
+      "title": "紧张",
+      "prompt": "紧张氛围，强对比与压迫感"
+    },
+    {
+      "id": "mood_joyful",
+      "slot": "Mood",
+      "title": "欢愉",
+      "prompt": "欢愉氛围，明亮色彩与生动元素"
+    },
+    {
+      "id": "mood_epic",
+      "slot": "Mood",
+      "title": "史诗",
+      "prompt": "史诗氛围，宏大场景与壮阔光影"
+    },
+    {
+      "id": "mood_dreamy",
+      "slot": "Mood",
+      "title": "梦幻",
+      "prompt": "梦幻氛围，柔焦与幻彩光晕"
+    },
+    {
+      "id": "mood_nostalgic",
+      "slot": "Mood",
+      "title": "怀旧",
+      "prompt": "怀旧氛围，褪色色调与复古元素"
+    },
+    {
+      "id": "mood_romantic",
+      "slot": "Mood",
+      "title": "浪漫",
+      "prompt": "浪漫氛围，温暖光线与花瓣"
+    },
+    {
+      "id": "mood_solemn",
+      "slot": "Mood",
+      "title": "庄严",
+      "prompt": "庄严氛围，对称建筑与肃穆光线"
+    },
+    {
+      "id": "mood_eerie",
+      "slot": "Mood",
+      "title": "诡异",
+      "prompt": "诡异氛围，扭曲元素与冷光"
+    }
+  ]
+}
