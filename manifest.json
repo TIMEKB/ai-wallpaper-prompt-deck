@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "deckVersion": 3,
+  "deckVersion": 4,
   "minAppVersionCode": 1,
   "deckUrl": "https://timekb.github.io/ai-wallpaper-prompt-deck/decks/prompt_deck_v1.json",
-  "sha256": "b3ee3b5114a5b409eff4d767e9fe923c595960c6eecebb0c166e2ed632607cf4",
-  "updatedAt": "2026-06-13T00:00:00+08:00",
-  "releaseNote": "云提示词表 v3：新增参考 / 艺术作品大类并支持随机"
+  "sha256": "960a77a7ad33b420d1c5fe672f484ff72a9b42e3745e40bf47a18f6890860f67",
+  "updatedAt": "2026-06-13T16:15:14+08:00",
+  "releaseNote": "云提示词表 v4：新增 主题 / 虚拟主播"
 }

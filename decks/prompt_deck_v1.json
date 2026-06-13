@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "deckVersion": 3,
+  "deckVersion": 4,
   "defaultNegativePrompt": "低质量，模糊，水印，文字，标志，结构错误，多余手指，脸部扭曲，画面脏乱",
   "slots": [
     {
@@ -1043,6 +1043,12 @@
       "slot": "Reference",
       "title": "CLAMP",
       "prompt": "参考 CLAMP 艺术作品，华丽人物线条、长身比例与装饰性服饰"
+    },
+    {
+      "id": "custom_theme_hcwm6v",
+      "slot": "Theme",
+      "title": "虚拟主播",
+      "prompt": "虚拟主播"
     }
   ]
 }
