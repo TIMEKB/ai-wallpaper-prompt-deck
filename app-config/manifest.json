@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "configVersion": 3,
+  "minAppVersionCode": 27,
+  "configUrl": "https://timekb.github.io/ai-wallpaper-prompt-deck/app-config/configs/app_config_v3.json",
+  "sha256": "64449a96ecdf9cbed1b0e8d4226df564488b4e64653920cd376df00729c868cb",
+  "updatedAt": "2026-07-02T19:28:10+00:00",
+  "releaseNote": "v0.6.0 多供应商免费生图池：均匀分配、失败切换与服务端密钥"
+}

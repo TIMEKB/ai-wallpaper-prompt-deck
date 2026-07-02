@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "configVersion": 3,
+  "runtimeMode": "production",
+  "profiles": {
+    "production": {
+      "imageApi": {
+        "enabled": true,
+        "name": "时刻免费生图池",
+        "baseUrl": "https://shike-image-proxy.zzqtim.workers.dev",
+        "model": "shike-free-pool",
+        "size": "1024x2048",
+        "timeoutSeconds": 300,
+        "authMode": "none"
+      }
+    },
+    "test": {
+      "imageApi": {
+        "enabled": true,
+        "name": "时刻免费生图池（测试）",
+        "baseUrl": "https://shike-image-proxy.zzqtim.workers.dev",
+        "model": "shike-free-pool",
+        "size": "1024x2048",
+        "timeoutSeconds": 300,
+        "authMode": "none"
+      }
+    }
+  },
+  "features": {
+    "generationEnabled": true,
+    "customApiEnabled": true,
+    "promptDeckUpdateEnabled": true
+  },
+  "update": {
+    "latestVersionCode": 0,
+    "latestVersionName": "",
+    "downloadUrl": "",
+    "forceUpdate": false,
+    "releaseNote": ""
+  },
+  "monetization": {
+    "enabled": true,
+    "freeDailyQuota": 3,
+    "premiumRequiredForCustomApi": true,
+    "purchaseUrl": "",
+    "backendBaseUrl": "https://shike-license.zzqtim.workers.dev",
+    "ads": {
+      "adsEnabled": false,
+      "splashEnabled": false,
+      "rewardedEnabled": false,
+      "rewardPerAd": 1,
+      "splashMinIntervalMinutes": 120
+    }
+  },
+  "maintenanceMessage": "",
+  "releaseNote": "v0.6.0 多供应商免费生图池：均匀分配、失败切换与服务端密钥"
+}
