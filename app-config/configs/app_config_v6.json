@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "configVersion": 6,
+  "runtimeMode": "production",
+  "profiles": {
+    "production": {
+      "imageApi": {
+        "enabled": true,
+        "name": "Shike Free Image Pool",
+        "baseUrl": "https://shike-image-proxy.zzqtim.workers.dev",
+        "model": "shike-free-pool",
+        "size": "1024x2048",
+        "timeoutSeconds": 300,
+        "authMode": "none"
+      }
+    },
+    "test": {
+      "imageApi": {
+        "enabled": true,
+        "name": "Shike Free Image Pool (Test)",
+        "baseUrl": "https://shike-image-proxy.zzqtim.workers.dev",
+        "model": "shike-free-pool",
+        "size": "1024x2048",
+        "timeoutSeconds": 300,
+        "authMode": "none"
+      }
+    }
+  },
+  "features": {
+    "generationEnabled": true,
+    "customApiEnabled": true,
+    "promptDeckUpdateEnabled": true,
+    "instantRandomPoolEnabled": true
+  },
+  "update": {
+    "latestVersionCode": 0,
+    "latestVersionName": "",
+    "downloadUrl": "",
+    "forceUpdate": false,
+    "releaseNote": ""
+  },
+  "monetization": {
+    "enabled": true,
+    "freeDailyQuota": 3,
+    "instantRandomDailyQuota": 24,
+    "premiumDailyQuota": 96,
+    "premiumRequiredForCustomApi": true,
+    "purchaseUrl": "",
+    "backendBaseUrl": "https://shike-license.zzqtim.workers.dev",
+    "ads": {
+      "adsEnabled": true,
+      "splashEnabled": false,
+      "rewardedEnabled": true,
+      "rewardPerAd": 1,
+      "splashMinIntervalMinutes": 120
+    }
+  },
+  "maintenanceMessage": "",
+  "releaseNote": "Instant Random pool enabled with 24 daily free deliveries; True Random keeps the existing real-time quota."
+}
