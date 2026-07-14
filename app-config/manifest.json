@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "configVersion": 6,
-  "minAppVersionCode": 27,
+  "minAppVersionCode": 53,
   "configUrl": "https://timekb.github.io/ai-wallpaper-prompt-deck/app-config/configs/app_config_v6.json",
-  "sha256": "159a240d3b16b29a0f46b50457f4799e7d7209babd74c6c68826d5260edeebbf",
-  "updatedAt": "2026-07-13T17:09:41+00:00",
-  "releaseNote": "Instant Random pool enabled with 24 daily free deliveries; True Random keeps the existing real-time quota."
+  "sha256": "78d2cb3998b138ab2810139ed7c3f920b82bd8ca0554e52463c8fc8a99886b59",
+  "updatedAt": "2026-07-14T10:29:56+00:00",
+  "releaseNote": "v0.7.0 新增极速随机图库：本地库存秒换壁纸，网络通畅时自动补充"
 }
