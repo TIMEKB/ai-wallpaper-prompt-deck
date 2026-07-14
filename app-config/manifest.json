@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "configVersion": 6,
-  "minAppVersionCode": 53,
-  "configUrl": "https://timekb.github.io/ai-wallpaper-prompt-deck/app-config/configs/app_config_v6.json",
-  "sha256": "78d2cb3998b138ab2810139ed7c3f920b82bd8ca0554e52463c8fc8a99886b59",
-  "updatedAt": "2026-07-14T10:29:56+00:00",
-  "releaseNote": "v0.7.0 新增极速随机图库：本地库存秒换壁纸，网络通畅时自动补充"
+  "configVersion": 7,
+  "minAppVersionCode": 54,
+  "configUrl": "https://timekb.github.io/ai-wallpaper-prompt-deck/app-config/configs/app_config_v7.json",
+  "sha256": "bb94c7993eb214bcd06cda65f0068964c25c2d6d0e661a5caee2ea584f92e4cc",
+  "updatedAt": "2026-07-14T16:14:03+00:00",
+  "releaseNote": "v0.7.1 新增检查更新、Google Play 直达入口与远程公告弹窗"
 }

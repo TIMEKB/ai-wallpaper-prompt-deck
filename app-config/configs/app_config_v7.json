@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "configVersion": 7,
+  "runtimeMode": "production",
+  "profiles": {
+    "production": {
+      "imageApi": {
+        "enabled": true,
+        "name": "时刻免费生图池",
+        "baseUrl": "https://shike-image-proxy.zzqtim.workers.dev",
+        "model": "shike-free-pool",
+        "size": "1024x2048",
+        "timeoutSeconds": 300,
+        "authMode": "none"
+      }
+    },
+    "test": {
+      "imageApi": {
+        "enabled": true,
+        "name": "时刻免费生图池（测试）",
+        "baseUrl": "https://shike-image-proxy.zzqtim.workers.dev",
+        "model": "shike-free-pool",
+        "size": "1024x2048",
+        "timeoutSeconds": 300,
+        "authMode": "none"
+      }
+    }
+  },
+  "features": {
+    "generationEnabled": true,
+    "customApiEnabled": true,
+    "promptDeckUpdateEnabled": true
+  },
+  "instantGallery": {
+    "enabled": true,
+    "baseUrl": "https://shike-image-proxy.zzqtim.workers.dev",
+    "lowWatermark": 2,
+    "targetStock": 6,
+    "maxStock": 8,
+    "ttlHours": 72,
+    "refreshIntervalHours": 6,
+    "manifestTimeoutSeconds": 3,
+    "downloadTimeoutSeconds": 20,
+    "maxImageBytes": 15728640
+  },
+  "update": {
+    "latestVersionCode": 0,
+    "latestVersionName": "",
+    "downloadUrl": "",
+    "forceUpdate": false,
+    "releaseNote": ""
+  },
+  "announcement": {
+    "enabled": true,
+    "id": "v0.7.1-update-center",
+    "title": "Instant gallery and update center",
+    "message": "Random mode can now change wallpapers from local stock immediately. Settings also includes update checks and a direct Google Play link.",
+    "titleZh": "极速图库与更新中心已上线",
+    "messageZh": "随机模式现在可以从本地库存秒换壁纸；设置页新增检查更新和直达 Google Play 的入口。",
+    "minVersionCode": 54,
+    "maxVersionCode": 0,
+    "showOnce": true,
+    "dismissible": true,
+    "actionLabel": "Open Google Play",
+    "actionLabelZh": "打开 Google Play",
+    "actionUrl": "https://play.google.com/store/apps/details?id=app.shike.wallpaper"
+  },
+  "monetization": {
+    "enabled": true,
+    "freeDailyQuota": 3,
+    "premiumDailyQuota": 96,
+    "premiumRequiredForCustomApi": true,
+    "purchaseUrl": "",
+    "backendBaseUrl": "https://shike-license.zzqtim.workers.dev",
+    "ads": {
+      "adsEnabled": true,
+      "splashEnabled": false,
+      "rewardedEnabled": true,
+      "rewardPerAd": 1,
+      "splashMinIntervalMinutes": 120
+    }
+  },
+  "maintenanceMessage": "",
+  "releaseNote": "v0.7.1 新增检查更新、Google Play 直达入口与远程公告弹窗"
+}
