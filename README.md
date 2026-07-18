@@ -24,3 +24,11 @@ Generic App manifest URL format:
 ```text
 https://<github_user>.github.io/ai-wallpaper-prompt-deck/manifest.json
 ```
+
+## Legal page
+
+The subscription-terms page is published at:
+
+```text
+https://timekb.github.io/ai-wallpaper-prompt-deck/legal/subscription-terms.html
+```
