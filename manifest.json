@@ -1,9 +1,11 @@
 {
   "schemaVersion": 1,
-  "deckVersion": 4,
-  "minAppVersionCode": 1,
+  "deckVersion": 6,
+  "minAppVersionCode": 54,
   "deckUrl": "https://timekb.github.io/ai-wallpaper-prompt-deck/decks/prompt_deck_v1.json",
-  "sha256": "960a77a7ad33b420d1c5fe672f484ff72a9b42e3745e40bf47a18f6890860f67",
-  "updatedAt": "2026-06-13T16:15:14+08:00",
-  "releaseNote": "云提示词表 v4：新增 主题 / 虚拟主播"
+  "sha256": "10c0d95a79a83e8c5fd4f01f56066fd04c782eeddb3f3c9510591f6e3e204225",
+  "releaseNote": "云提示词表 v6：补回“虚拟主播”并保留所有卡片的显式中英文标题",
+  "updatedAt": "2026-07-19T17:31:03+00:00",
+  "kid": "remote-config-v1",
+  "signature": "Pcuo30cTHMQni9HYQWOqvgB_WjZAcK5Jxw9YnQRAW8_yavrfrMIWMYqLUvSqj9RCzMM49muyDPC5KXhJ5691BQ"
 }

@@ -1,9 +1,11 @@
 {
   "schemaVersion": 1,
-  "configVersion": 7,
+  "configVersion": 8,
   "minAppVersionCode": 54,
-  "configUrl": "https://timekb.github.io/ai-wallpaper-prompt-deck/app-config/configs/app_config_v7.json",
-  "sha256": "bb94c7993eb214bcd06cda65f0068964c25c2d6d0e661a5caee2ea584f92e4cc",
-  "updatedAt": "2026-07-14T16:14:03+00:00",
-  "releaseNote": "v0.7.1 新增检查更新、Google Play 直达入口与远程公告弹窗"
+  "configUrl": "https://timekb.github.io/ai-wallpaper-prompt-deck/app-config/configs/app_config_v8.json",
+  "sha256": "bcf01d86f5e40fa2ffc914fc05f85f5dfa55a29d6b1f9041f283ce439e95a5c9",
+  "updatedAt": "2026-07-17T18:49:14+00:00",
+  "releaseNote": "v0.7.1 Google Play 海外发布候选配置收口",
+  "kid": "remote-config-v1",
+  "signature": "aJ-LHr7auRhRxI4_hFrdNxs4Y8wPr05E-7Cs5g-VBkJ7xTTGUgZCwZcPkPOiwmP5Jl03wfKcGE65tPOp-cOaCQ"
 }

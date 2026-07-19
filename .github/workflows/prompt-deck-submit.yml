@@ -1,33 +1,31 @@
-name: Prompt deck submit
+name: Prompt deck candidate
 
 on:
   issues:
     types: [opened, edited]
 
 permissions:
-  contents: write
+  contents: read
   issues: write
 
 jobs:
-  apply:
+  prepare:
     if: ${{ github.event.issue.state == 'open' && github.event.issue.user.login == 'TIMEKB' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - id: apply
+      - id: prepare
         continue-on-error: true
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
           python3 - <<'PY'
-          import hashlib
           import json
           import os
           import re
           import sys
-          from datetime import datetime, timezone, timedelta
           from pathlib import Path
 
           marker = "ai-wallpaper-prompt-deck-submit:v1"
@@ -56,16 +54,29 @@ jobs:
           slot_label = str(slot.get("label") or "").strip()
           card_id = clean_id(card.get("id"))
           card_title = str(card.get("title") or "").strip()
+          card_title_zh = str(card.get("titleZh") or card_title).strip()
+          card_title_en_source = str(card.get("titleEn") or "").strip()
+          card_title_en = card_title_en_source or card_title
           card_prompt = str(card.get("prompt") or "").strip()
-          if not slot_id or not slot_label or not card_id or not card_title or not card_prompt:
+          if (
+              not slot_id
+              or not slot_label
+              or not card_id
+              or not card_title
+              or not card_title_zh
+              or not card_title_en
+              or not card_prompt
+          ):
               Path("comment.md").write_text("大类 ID、名称、子标签名称和 Prompt 都不能为空。", encoding="utf-8")
               sys.exit(1)
           if len(card_prompt) > 300:
               Path("comment.md").write_text("Prompt 超过 300 字，请缩短后重新提交。", encoding="utf-8")
               sys.exit(1)
+          if len(card_title_zh) > 100 or len(card_title_en) > 100:
+              Path("comment.md").write_text("中英文标题不能超过 100 字。", encoding="utf-8")
+              sys.exit(1)
 
           deck_path = Path("decks/prompt_deck_v1.json")
-          manifest_path = Path("manifest.json")
           deck = json.loads(deck_path.read_text(encoding="utf-8"))
           slots = deck.setdefault("slots", [])
           cards = deck.setdefault("cards", [])
@@ -92,55 +103,79 @@ jobs:
               "id": card_id,
               "slot": slot_id,
               "title": card_title,
+              "titleEn": card_title_en,
+              "titleZh": card_title_zh,
               "prompt": card_prompt,
           })
 
+          base_deck_version = int(deck.get("deckVersion", 0))
+          if base_deck_version <= 0:
+              Path("comment.md").write_text("当前牌库版本无效，已停止生成候选。", encoding="utf-8")
+              sys.exit(1)
           deck["deckVersion"] = int(deck.get("deckVersion", 0)) + 1
           deck_text = json.dumps(deck, ensure_ascii=False, indent=2, separators=(",", ": ")) + "\n"
-          deck_path.write_text(deck_text, encoding="utf-8")
-          digest = hashlib.sha256(deck_text.encode("utf-8")).hexdigest()
-
-          updated_at = datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds")
-          manifest = {
+          candidate_dir = Path("candidate")
+          candidate_deck_path = candidate_dir / "decks" / "prompt_deck_v1.json"
+          candidate_deck_path.parent.mkdir(parents=True, exist_ok=True)
+          candidate_deck_path.write_text(deck_text, encoding="utf-8")
+          metadata = {
               "schemaVersion": 1,
-              "deckVersion": deck["deckVersion"],
-              "minAppVersionCode": 1,
-              "deckUrl": "https://timekb.github.io/ai-wallpaper-prompt-deck/decks/prompt_deck_v1.json",
-              "sha256": digest,
-              "updatedAt": updated_at,
-              "releaseNote": f"云提示词表 v{deck['deckVersion']}：新增 {slot_label} / {card_title}",
+              "kind": "prompt-deck-unsigned-candidate",
+              "baseDeckVersion": base_deck_version,
+              "candidateDeckVersion": deck["deckVersion"],
+              "sourceIssue": int(issue_number),
+              "cardId": card_id,
+              "requiresOfflineSigning": True,
+              "localizationReviewRequired": not bool(card_title_en_source),
           }
-          manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2, separators=(",", ": ")) + "\n", encoding="utf-8")
+          (candidate_dir / "candidate-metadata.json").write_text(
+              json.dumps(metadata, ensure_ascii=False, indent=2, separators=(",", ": ")) + "\n",
+              encoding="utf-8",
+          )
+          (candidate_dir / "README.txt").write_text(
+              "UNSIGNED CANDIDATE ONLY.\n"
+              "Do not publish this artifact directly.\n"
+              "Review bilingual titles, copy the reviewed payload into the App repository, "
+              "generate a new manifest, sign it offline, and verify it before release.\n",
+              encoding="utf-8",
+          )
 
-          Path("commit-message.txt").write_text(f"Add prompt card {slot_label} / {card_title}\n", encoding="utf-8")
+          localization_note = (
+              "\n\n本次提交没有提供英文标题，候选中仅使用原标题占位；发布前必须人工补充并复核英文标题。"
+              if not card_title_en_source
+              else ""
+          )
           Path("comment.md").write_text(
-              f"已提交云提示词表 v{deck['deckVersion']}：`{slot_label} / {card_title}`。\n\n"
-              f"App 不会自动刷新，请在 App 设置页手动点击“检查提示词更新”验证。",
+              f"已生成**未签名候选** v{deck['deckVersion']}：`{slot_label} / {card_title}`。"
+              f"{localization_note}\n\n"
+              "本工作流不会提交、推送或发布生产牌库，也不会生成签名 manifest。"
+              "请由离线发布人员审核候选、生成新版本 manifest、离线签名并验签后再发布。\n\n"
+              f"候选下载位置：{os.environ['GITHUB_SERVER_URL']}/"
+              f"{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
               encoding="utf-8",
           )
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
               output.write(f"deck_version={deck['deckVersion']}\n")
           PY
 
-      - name: Commit deck update
-        if: steps.apply.outcome == 'success'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add manifest.json decks/prompt_deck_v1.json
-          git commit -F commit-message.txt
-          git push
+      - name: Upload unsigned candidate
+        if: steps.prepare.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-prompt-deck-candidate-v${{ steps.prepare.outputs.deck_version }}-issue-${{ github.event.issue.number }}
+          path: candidate/
+          if-no-files-found: error
+          retention-days: 7
 
-      - name: Mark issue applied
-        if: steps.apply.outcome == 'success'
+      - name: Comment candidate ready
+        if: steps.prepare.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh issue comment "${{ github.event.issue.number }}" --body-file comment.md
-          gh issue close "${{ github.event.issue.number }}" --reason completed
 
       - name: Comment failure
-        if: steps.apply.outcome != 'success'
+        if: steps.prepare.outcome != 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
