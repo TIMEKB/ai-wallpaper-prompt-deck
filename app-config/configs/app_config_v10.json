@@ -1,0 +1,2327 @@
+{
+  "schemaVersion": 1,
+  "configVersion": 10,
+  "runtimeMode": "production",
+  "profiles": {
+    "production": {
+      "imageApi": {
+        "enabled": true,
+        "name": "时刻免费生图池",
+        "baseUrl": "https://shike-image-proxy.zzqtim.workers.dev",
+        "model": "shike-free-pool",
+        "size": "1024x2048",
+        "timeoutSeconds": 300,
+        "authMode": "none"
+      }
+    },
+    "test": {
+      "imageApi": {
+        "enabled": true,
+        "name": "时刻免费生图池（测试）",
+        "baseUrl": "https://shike-image-proxy.zzqtim.workers.dev",
+        "model": "shike-free-pool",
+        "size": "1024x2048",
+        "timeoutSeconds": 300,
+        "authMode": "none"
+      }
+    }
+  },
+  "features": {
+    "generationEnabled": true,
+    "customApiEnabled": true,
+    "promptDeckUpdateEnabled": true
+  },
+  "instantGallery": {
+    "enabled": true,
+    "baseUrl": "https://shike-image-proxy.zzqtim.workers.dev",
+    "lowWatermark": 2,
+    "targetStock": 6,
+    "maxStock": 8,
+    "ttlHours": 72,
+    "refreshIntervalHours": 6,
+    "manifestTimeoutSeconds": 15,
+    "downloadTimeoutSeconds": 20,
+    "maxImageBytes": 15728640,
+    "managerTargetStock": 100
+  },
+  "update": {
+    "latestVersionCode": 0,
+    "latestVersionName": "",
+    "downloadUrl": "",
+    "forceUpdate": false,
+    "releaseNote": ""
+  },
+  "announcement": {
+    "enabled": true,
+    "id": "v0.7.1-update-center",
+    "title": "Instant gallery and update center",
+    "message": "Random mode can now change wallpapers from local stock immediately. Settings also includes update checks and a direct Google Play link.",
+    "titleZh": "极速图库与更新中心已上线",
+    "messageZh": "随机模式现在可以从本地库存秒换壁纸；设置页新增检查更新和直达 Google Play 的入口。",
+    "minVersionCode": 54,
+    "maxVersionCode": 0,
+    "showOnce": true,
+    "dismissible": true,
+    "actionLabel": "Open Google Play",
+    "actionLabelZh": "打开 Google Play",
+    "actionUrl": "https://play.google.com/store/apps/details?id=app.shike.wallpaper"
+  },
+  "monetization": {
+    "enabled": true,
+    "freeDailyQuota": 3,
+    "premiumDailyQuota": 96,
+    "premiumRequiredForCustomApi": true,
+    "backendBaseUrl": "https://shike-license.zzqtim.workers.dev",
+    "ads": {
+      "adsEnabled": true,
+      "splashEnabled": false,
+      "rewardedEnabled": false,
+      "rewardPerAd": 1,
+      "splashMinIntervalMinutes": 120
+    }
+  },
+  "maintenanceMessage": "",
+  "releaseNote": "Fix gallery manifest timeout for existing clients; retain cloud-driven content and reviewed gallery separation.",
+  "experience": {
+    "configRefreshMinutes": 60,
+    "promptRefreshMinutes": 60,
+    "navigation": [
+      {
+        "id": "home",
+        "type": "home",
+        "titleEn": "Home",
+        "titleZh": "首页"
+      },
+      {
+        "id": "prompts",
+        "type": "prompts",
+        "titleEn": "Prompts",
+        "titleZh": "提示词"
+      }
+    ],
+    "homeModules": [
+      {
+        "id": "recommended-directions",
+        "type": "directions",
+        "titleEn": "Choose your scenery",
+        "titleZh": "选择喜欢的风景",
+        "enabled": false
+      },
+      {
+        "id": "offline-stock",
+        "type": "stock",
+        "titleEn": "Offline wallpapers",
+        "titleZh": "本地壁纸",
+        "enabled": false
+      },
+      {
+        "id": "new-content",
+        "type": "message",
+        "titleEn": "New inspiration",
+        "titleZh": "新的灵感",
+        "bodyEn": "Fresh landscapes, cities and starry skies.",
+        "bodyZh": "新的风景、城市与星空。",
+        "enabled": false
+      },
+      {
+        "id": "prompt-entry",
+        "type": "action",
+        "titleEn": "Explore styles",
+        "titleZh": "探索风格",
+        "action": "prompts",
+        "enabled": false
+      },
+      {
+        "id": "settings-entry",
+        "type": "action",
+        "titleEn": "Wallpaper settings",
+        "titleZh": "壁纸设置",
+        "action": "settings",
+        "enabled": false
+      }
+    ],
+    "directions": [
+      {
+        "id": "scenery",
+        "category": "scenery",
+        "titleEn": "Scenery",
+        "titleZh": "自然风景",
+        "prompt": "山水风景"
+      },
+      {
+        "id": "portrait",
+        "category": "portrait",
+        "titleEn": "Portrait",
+        "titleZh": "人物肖像",
+        "prompt": "人物肖像"
+      },
+      {
+        "id": "vehicle",
+        "category": "vehicle",
+        "titleEn": "Vehicles",
+        "titleZh": "各类载具",
+        "prompt": "各类载具"
+      },
+      {
+        "id": "architecture",
+        "category": "architecture",
+        "titleEn": "Architecture",
+        "titleZh": "建筑空间",
+        "prompt": "建筑空间"
+      },
+      {
+        "id": "animals",
+        "category": "animals",
+        "titleEn": "Animals",
+        "titleZh": "动物世界",
+        "prompt": "动物世界"
+      },
+      {
+        "id": "abstract",
+        "category": "abstract",
+        "titleEn": "Abstract",
+        "titleZh": "抽象构成",
+        "prompt": "抽象构成"
+      },
+      {
+        "id": "manager_recommended",
+        "category": "manager_recommended",
+        "titleEn": "Manager's picks",
+        "titleZh": "店长推荐",
+        "prompt": "",
+        "rouletteId": "manager-v3"
+      }
+    ],
+    "roulettes": [
+      {
+        "id": "manager-v3",
+        "suffix": "保持环境题材为主，按以上所选场景自然决定尺度，构图、光照和配色与以上选择保持一致；如需人物，人物仅作小比例原创背影或剪影点景，空间结构与透视连贯。原创插画，不复刻具体作品或已知角色；无文字、标志、水印，适合竖屏手机壁纸。",
+        "prefixes": {
+          "hathway_worldbuilding": "店长推荐，视觉参考：JohnHathway；An intricately drawn fantasy world built from dense layers of architecture and mechanical structures. Fine ink-like outlines, precise perspective and selective flat color describe elaborate believable forms, with clear differences in scale and carefully spaced areas of detail",
+          "tokyo_genso_reclaimed_city": "店长推荐，视觉参考：东京幻想（Tokyo Genso）；A lifelike architectural environment matte painting of a familiar city reclaimed by nature. Weathered concrete, intricate foliage and clear water have convincing three-dimensional surfaces, coherent reflections and accurate perspective. Crisp nearby detail softens into atmospheric distance, creating a quiet, dreamlike and thriving environment",
+          "mocha_atmosphere": "店长推荐，视觉参考：mocha；A luminous Japanese landscape painting with oil-paint-like brushwork and a vast sense of space. Broad visible strokes build volumetric clouds and distant landforms, while smaller painted strokes describe nearby natural details. Warm lit planes, cool shadow masses and soft atmospheric transitions create a serene, slightly dreamlike environment",
+          "mocha_atmosphere_wilderness_summer_open_grassland": "店长推荐，视觉参考：mocha；A spacious Japanese anime environment painting with visible oil-paint-like brushwork, large calm shapes, rich luminous color and clearly layered atmospheric distance",
+          "waisshu_grand_scale": "店长推荐，视觉参考：わいっしゅ（Waisshu）；A cinematic fantasy environment concept painting combining believable architectural structure with extraordinary natural scale. Volumetric landforms, textured painted materials and atmospheric distance create monumental depth; intricate detail is concentrated around the principal structure within strong large shapes",
+          "waisshu_grand_scale_wilderness_wide_upland_river": "店长推荐，视觉参考：わいっしゅ（Waisshu）；A spacious Japanese anime environment painting with visible oil-paint-like brushwork, large calm shapes, rich luminous color and clearly layered atmospheric distance",
+          "fujiwara_color_fantasy": "店长推荐，视觉参考：藤ちょこ（fuzichoco）；A finely detailed Japanese fantasy illustration with delicate decorative patterns and luminous layered color. Transparent color transitions, intricate foliage and ornamental surfaces form a dreamlike environment. Rich jewel-like hues have clear dominant areas and restrained accents, with fine local edges and readable spatial layers",
+          "shinkai_sky_light": "店长推荐，视觉参考：新海诚（Makoto Shinkai）；A refined Japanese animated-film background painting with intricately observed environmental detail. Volumetric clouds have clearly modeled lit edges and cool shadow planes, while lucid atmospheric gradients, natural reflections and softly receding distance give the scene cinematic emotion and convincing depth",
+          "shinkai_sky_light_wilderness_undeveloped_open_coast": "店长推荐，视觉参考：新海诚（Makoto Shinkai）；A spacious Japanese anime environment painting with visible oil-paint-like brushwork, large calm shapes, rich luminous color and clearly layered atmospheric distance",
+          "reference_grand_garden_world": "店长推荐，视觉参考：店长提供的宏伟花园世界图片；An immersive cinematic fantasy environment matte painting with lifelike three-dimensional materials and subtle hand-painted finishing. Intricate natural foliage, weathered mineral surfaces, transparent water, coherent refraction and fine surface detail create convincing depth. Nearby textures are clearly resolved while distant layers softly recede, forming a luminous and awe-inspiring garden world",
+          "nik_daily_city": "店长推荐，视觉参考：NIK（JP NIK / nik_jyp）；A finely painted Japanese everyday environment illustration with believable street perspective and layered architecture. Carefully observed windows, eaves, utility wires and plants form intimate living details. Fine painted textures and selective crisp edges in the foreground soften into the distance, combining accurate structure with a clear, inviting atmosphere",
+          "pippi_painterly_water": "店长推荐，视觉参考：ぴっぴ（pippi913）；A narrative environment painting with clearly visible brushwork and rich natural surface detail. Broad, solid light-and-shadow planes give rocks, wood and plants convincing volume, while smaller strokes resolve nearby texture. Warm lit accents contrast with cool shadows, and clear coherent reflections give water depth; any tiny original traveler remains a minor environmental accent",
+          "pasoputi_emotional_space": "店长推荐，视觉参考：pasoputi（pasopuchi）；An expressive painted environment illustration capturing a quiet moment through space and color. Believable perspective connects buildings, sky and intimate everyday details; carefully arranged light and shadow create visual rhythm. Soft painted transitions are balanced with clear selective edges, preserving calm atmosphere and readable environmental depth",
+          "bocuden_clear_background": "店长推荐，视觉参考：BoCuden；A clear, finely detailed Japanese background painting with believable architectural structure and carefully observed plants. Clean layered gradients in the sky and water combine with intricate nearby everyday detail and softly receding atmospheric distance. Rich but deliberately placed color creates a quiet, lucid environment",
+          "bocuden_clear_background_wilderness_golden_open_wilderness": "店长推荐，视觉参考：BoCuden；A spacious Japanese anime environment painting with visible oil-paint-like brushwork, large calm shapes, rich luminous color and clearly layered atmospheric distance",
+          "banishment_blue_surreal": "店长推荐，视觉参考：banishment；A precise Japanese surreal environment illustration where familiar everyday architecture meets one carefully defined impossible spatial relationship. Real street surfaces and coherent perspective remain believable around the fantasy element; sky and reflections create deliberate visual displacement. Fine environmental detail, deep tonal layers and selective local light preserve a clear, quietly strange atmosphere",
+          "hotaka_lit_city_corner": "店长推荐，视觉参考：hotaka；A finely painted Japanese nighttime environment illustration focused on an intimate street corner. Layered eaves, weathered walls, paving and windows establish continuous near-to-middle-distance perspective. Localized warm light pools contrast with cool ambient shadows; delicate surface textures and selective crisp detail remain readable within the quiet night",
+          "houtei9_white_fantasy": "店长推荐，视觉参考：河底9（Houtei9 / hohtei9）；A delicate fantasy environment painting built around pale architectural surfaces. Believable three-dimensional shading blends with finely visible painted texture; intricate material details and natural plants organize the nearby space. Familiar architecture contains subtle speculative details, while softly receding layers create an airy, intimate environment",
+          "pentaro_star_night_reference": "店长推荐，视觉参考：ペンたろう（提供图片参考）；An original painted nighttime environment inspired by the supplied starry-sky reference. A vast deep night sky forms the principal visual space, with naturally varied star sizes and unevenly grouped star density. Softly layered land or architectural silhouettes and a few small warm lights establish scale, depth and a quiet balance of cool and warm color",
+          "pentaro_star_night_reference_wilderness_starry_empty_moorland": "店长推荐，视觉参考：ペンたろう（提供图片参考）；A spacious Japanese anime environment painting with visible oil-paint-like brushwork, large calm shapes, rich luminous color and clearly layered atmospheric distance"
+        },
+        "wheels": {
+          "composition": [
+            {
+              "id": "grand_vista",
+              "prompt": "竖幅广角远景，天空或地貌形成大尺度主视觉，地平线偏下，顶部留出呼吸空间"
+            },
+            {
+              "id": "high_oblique",
+              "prompt": "高位斜俯视，保留远方地平线，前中后景形成清楚的空间层次"
+            },
+            {
+              "id": "low_upward",
+              "prompt": "较低机位向远处仰望，以近景与云层或巨构的尺度差增强冲击感"
+            },
+            {
+              "id": "foreground_frame",
+              "prompt": "用近景植物或岩石局部框景，核心景观完整可见，画面向远处展开"
+            },
+            {
+              "id": "leading_depth",
+              "prompt": "河道、路径或地形边缘自然引导视线进入远景，主景偏离正中央"
+            },
+            {
+              "id": "intimate_corner",
+              "prompt": "街角或环境中景，适度靠近主体，屋檐、墙面与道路组织亲切的空间，不强求远方地平线"
+            },
+            {
+              "id": "architecture_crop",
+              "prompt": "建筑与环境的局部构图，选择窗台、转角或阶梯作为主视觉，边缘自然延伸到画外"
+            },
+            {
+              "id": "sky_vertical",
+              "prompt": "竖幅天空构图，星空或云幕占据主体，下方少量地景提供尺度，天空细节自然分布"
+            },
+            {
+              "id": "rooftop_upward",
+              "prompt": "从地面或屋顶向上望，近处屋檐与远处天空形成尺度差，不添加无关巨构"
+            },
+            {
+              "id": "reflection_detail",
+              "prompt": "以环境中的水面或玻璃倒映形成主视觉，保留真实场景的一角，倒影方向和空间关系连贯"
+            },
+            {
+              "id": "open_level_vista",
+              "prompt": "A level, unobstructed distant view. A low remote horizon sits in the lower third; expansive sky and continuous open land or water dominate, with sparse low foreground texture"
+            },
+            {
+              "id": "open_low_horizon",
+              "prompt": "A level, sweeping view toward a very distant horizon in the lower quarter. Broad open sky fills most of the vertical canvas, while a thin uninterrupted foreground leads freely into the distance"
+            }
+          ],
+          "sky": [
+            {
+              "id": "sky_coverage_0",
+              "prompt": "天空占比0档：天空与云层合计约0%，不露出天空或云层；本档位优先于场景或构图中的低地平线、天空主导提示，以地景或环境填满画幅"
+            },
+            {
+              "id": "sky_coverage_1",
+              "prompt": "天空占比1档：可见天空与云层合计约10%的画幅，其余约90%容纳地景与点景；高档缩小地面、建筑与植被，本档位优先于场景或构图中的低地平线、天空主导提示"
+            },
+            {
+              "id": "sky_coverage_2",
+              "prompt": "天空占比2档：可见天空与云层合计约20%的画幅，其余约80%容纳地景与点景；高档缩小地面、建筑与植被，本档位优先于场景或构图中的低地平线、天空主导提示"
+            },
+            {
+              "id": "sky_coverage_3",
+              "prompt": "天空占比3档：可见天空与云层合计约30%的画幅，其余约70%容纳地景与点景；高档缩小地面、建筑与植被，本档位优先于场景或构图中的低地平线、天空主导提示"
+            },
+            {
+              "id": "sky_coverage_4",
+              "prompt": "天空占比4档：可见天空与云层合计约40%的画幅，其余约60%容纳地景与点景；高档缩小地面、建筑与植被，本档位优先于场景或构图中的低地平线、天空主导提示"
+            },
+            {
+              "id": "sky_coverage_5",
+              "prompt": "天空占比5档：可见天空与云层合计约50%的画幅，其余约50%容纳地景与点景；高档缩小地面、建筑与植被，本档位优先于场景或构图中的低地平线、天空主导提示"
+            },
+            {
+              "id": "sky_coverage_6",
+              "prompt": "天空占比6档：可见天空与云层合计约60%的画幅，其余约40%容纳地景与点景；高档缩小地面、建筑与植被，本档位优先于场景或构图中的低地平线、天空主导提示"
+            },
+            {
+              "id": "sky_coverage_7",
+              "prompt": "天空占比7档：可见天空与云层合计约70%的画幅，其余约30%容纳地景与点景；高档缩小地面、建筑与植被，本档位优先于场景或构图中的低地平线、天空主导提示"
+            },
+            {
+              "id": "sky_coverage_8",
+              "prompt": "天空占比8档：可见天空与云层合计约80%的画幅，其余约20%容纳地景与点景；高档缩小地面、建筑与植被，本档位优先于场景或构图中的低地平线、天空主导提示"
+            },
+            {
+              "id": "sky_coverage_9",
+              "prompt": "天空占比9档：可见天空与云层合计约90%的画幅，其余约10%容纳地景与点景；高档缩小地面、建筑与植被，本档位优先于场景或构图中的低地平线、天空主导提示"
+            }
+          ],
+          "light_hathway_worldbuilding": [
+            {
+              "id": "clear_day",
+              "prompt": "清晰日光照亮主要结构，明暗关系明确，细线和局部色块清楚可读"
+            },
+            {
+              "id": "amber_evening",
+              "prompt": "暖色傍晚斜光擦过密集结构，阴影保持冷色层次"
+            },
+            {
+              "id": "luminous_cloud",
+              "prompt": "云隙天光照亮高处奇观，远景在淡雾中递进，细节疏密有序"
+            }
+          ],
+          "palette_hathway_worldbuilding": [
+            {
+              "id": "ink_pastel",
+              "prompt": "细密墨线与薄涂色块，米白、浅青和暖橙分区设色，保持局部留白"
+            },
+            {
+              "id": "cobalt_coral",
+              "prompt": "清楚线描结合蓝青、珊瑚红和金黄的彩色结构，点色鲜亮但有主次"
+            },
+            {
+              "id": "mineral_earth",
+              "prompt": "精细线条和矿物色薄涂，蓝绿、赭石与象牙白并置，色域集中而细节丰富"
+            }
+          ],
+          "light_tokyo_genso_reclaimed_city": [
+            {
+              "id": "after_rain",
+              "prompt": "雨后柔和天光，叶片与建筑表面湿润反光，远景空气通透"
+            },
+            {
+              "id": "summer_sun",
+              "prompt": "夏日晴空中穿过树冠的日光，城市结构有柔和投影"
+            },
+            {
+              "id": "quiet_dusk",
+              "prompt": "静谧黄昏的低角度暖光，水面映出淡紫色天空"
+            }
+          ],
+          "palette_tokyo_genso_reclaimed_city": [
+            {
+              "id": "fresh_green",
+              "prompt": "写实数码绘景，青绿植物、灰白建筑与浅蓝天空构成清新主色"
+            },
+            {
+              "id": "deep_emerald",
+              "prompt": "细腻数码绘画，深翠树冠与青蓝水面交错，暖色残存建筑作小面积点色"
+            },
+            {
+              "id": "muted_lilac",
+              "prompt": "柔和写实笔触，低饱和青绿与淡紫灰铺底，局部嫩绿和暖橙提高层次"
+            }
+          ],
+          "light_mocha_atmosphere": [
+            {
+              "id": "morning_cloud",
+              "prompt": "清晨天光透过层叠云缘，远山在柔和空气中渐淡"
+            },
+            {
+              "id": "sunlit_summer",
+              "prompt": "晴朗夏日的通透天光，白云受光面明亮、背光面保有蓝紫层次"
+            },
+            {
+              "id": "rose_sunset",
+              "prompt": "日落前的暖色天光映照云层，冷色水面或山影保留平静层次"
+            },
+            {
+              "id": "wilderness_light",
+              "prompt": "Bright clear summer daylight models warm cloud faces and cool shadow masses across the open natural landscape"
+            }
+          ],
+          "palette_mocha_atmosphere": [
+            {
+              "id": "blue_cyan",
+              "prompt": "细腻厚薄结合的数码笔触，湛蓝、青绿与暖白主色，明亮但不过曝"
+            },
+            {
+              "id": "lavender_peach",
+              "prompt": "柔和厚涂云层与淡化远景，淡紫、蜜桃与冷蓝组成轻盈色彩"
+            },
+            {
+              "id": "teal_gold",
+              "prompt": "概括的绘画笔触，青蓝与草绿形成大色面，金色云缘和花草作暖色点缀"
+            },
+            {
+              "id": "wilderness_palette_1",
+              "prompt": "Broad visible brushwork, lucid azure and turquoise, fresh mineral green, warm cream highlights and cool lavender-blue shadows"
+            },
+            {
+              "id": "wilderness_palette_2",
+              "prompt": "Refined thick-paint strokes, cobalt and aquamarine with jade midtones, soft ivory highlights and restrained warm-gold accents"
+            },
+            {
+              "id": "wilderness_palette_3",
+              "prompt": "Soft layered oil-like brushwork, clear sky blue and cool teal, pale green midtones and delicate peach-cream highlights"
+            }
+          ],
+          "light_waisshu_grand_scale": [
+            {
+              "id": "breakthrough_sun",
+              "prompt": "云隙斜射天光强调主要巨构，近景阴影与远方亮面形成尺度对比"
+            },
+            {
+              "id": "clear_noon",
+              "prompt": "清朗日光刻画石壁与建筑体积，远山在蓝色空气中层层递减"
+            },
+            {
+              "id": "golden_horizon",
+              "prompt": "地平线附近的金色余晖擦亮巨构边缘，冷青山谷保持深度"
+            },
+            {
+              "id": "wilderness_light",
+              "prompt": "Lucid natural daylight and softly modeled cloud shadows give the enormous open valley readable depth"
+            }
+          ],
+          "palette_waisshu_grand_scale": [
+            {
+              "id": "azure_stone",
+              "prompt": "数码概念绘画，蔚蓝天空、灰白石材和翡翠水色形成清晰大关系"
+            },
+            {
+              "id": "emerald_ochre",
+              "prompt": "可见块面笔触，深青绿地貌与暖赭岩层并置，局部亮青水流导引视线"
+            },
+            {
+              "id": "violet_gold",
+              "prompt": "细节与概括块面结合，蓝紫阴影、金色受光边缘与少量暖红点景"
+            },
+            {
+              "id": "wilderness_palette_1",
+              "prompt": "Broad visible brushwork, lucid azure and turquoise, fresh mineral green, warm cream highlights and cool lavender-blue shadows"
+            },
+            {
+              "id": "wilderness_palette_2",
+              "prompt": "Refined thick-paint strokes, cobalt and aquamarine with jade midtones, soft ivory highlights and restrained warm-gold accents"
+            },
+            {
+              "id": "wilderness_palette_3",
+              "prompt": "Soft layered oil-like brushwork, clear sky blue and cool teal, pale green midtones and delicate peach-cream highlights"
+            }
+          ],
+          "light_fujiwara_color_fantasy": [
+            {
+              "id": "soft_bloom",
+              "prompt": "明亮柔和的漫射天光，让彩色玻璃与花瓣保留透明层次"
+            },
+            {
+              "id": "crystal_sun",
+              "prompt": "清澈日光穿过薄云，水面与装饰局部闪耀，主体细节清楚"
+            },
+            {
+              "id": "fantasy_twilight",
+              "prompt": "蓝紫暮光中细小暖色光源点亮花园，天空保持渐变层次"
+            }
+          ],
+          "palette_fujiwara_color_fantasy": [
+            {
+              "id": "cyan_magenta",
+              "prompt": "精细插画线条与透明数码色彩，青蓝与洋红为主、琥珀色点缀，鲜亮色彩保持分区"
+            },
+            {
+              "id": "jade_lilac",
+              "prompt": "细腻层叠设色，玉绿、淡紫和桃粉相互映照，花叶纹样丰富但主景清楚"
+            },
+            {
+              "id": "cobalt_vermilion",
+              "prompt": "精细二次元环境插画，钴蓝与朱红形成强对比，金色和嫩绿只在局部出现"
+            }
+          ],
+          "light_shinkai_sky_light": [
+            {
+              "id": "bright_summer",
+              "prompt": "晴朗盛夏的强而干净的天光，云缘明亮，天空渐变细腻"
+            },
+            {
+              "id": "sunshower",
+              "prompt": "太阳雨刚停后的清澈天光，路面与水面保留细小反光，云层仍有体积"
+            },
+            {
+              "id": "sunset_glow",
+              "prompt": "夕照点亮层叠云缘，冷色地景与暖色天空形成电影般情绪"
+            },
+            {
+              "id": "wilderness_light",
+              "prompt": "Bright clean daylight reveals clear shallow water, gentle natural reflections and softly shaded cloud volume"
+            }
+          ],
+          "palette_shinkai_sky_light": [
+            {
+              "id": "summer_blue",
+              "prompt": "精细动画背景笔触，湛蓝与青色渐变天空、暖白云体和自然草绿"
+            },
+            {
+              "id": "peach_violet",
+              "prompt": "细腻背景设色，桃橙云缘、淡紫远景和深蓝水面形成温柔冷暖关系"
+            },
+            {
+              "id": "turquoise_rose",
+              "prompt": "透明数码绘画，青蓝空气中以淡玫瑰和嫩绿点色，明亮清澈而层次丰富"
+            },
+            {
+              "id": "wilderness_palette_1",
+              "prompt": "Broad visible brushwork, lucid azure and turquoise, fresh mineral green, warm cream highlights and cool lavender-blue shadows"
+            },
+            {
+              "id": "wilderness_palette_2",
+              "prompt": "Refined thick-paint strokes, cobalt and aquamarine with jade midtones, soft ivory highlights and restrained warm-gold accents"
+            },
+            {
+              "id": "wilderness_palette_3",
+              "prompt": "Soft layered oil-like brushwork, clear sky blue and cool teal, pale green midtones and delicate peach-cream highlights"
+            }
+          ],
+          "light_reference_grand_garden_world": [
+            {
+              "id": "clear_sun",
+              "prompt": "清朗日光照亮大云与水面，植物层次丰富，保留自然投影"
+            },
+            {
+              "id": "mist_morning",
+              "prompt": "晨雾中的柔亮天光，前景青绿浓郁，远处巨构在淡蓝空气中渐隐"
+            },
+            {
+              "id": "warm_cloud_rim",
+              "prompt": "暖色斜光勾亮云缘和岩壁，冷青水面与绿植保持通透"
+            }
+          ],
+          "palette_reference_grand_garden_world": [
+            {
+              "id": "lush_turquoise",
+              "prompt": "细节与大色块结合的厚涂，鲜绿、碧蓝与暖白为主，局部花色丰富且有主次"
+            },
+            {
+              "id": "oil_mineral",
+              "prompt": "可见油画式笔触与清晰轮廓结合，矿物青绿、群青和淡金色形成明亮层次"
+            },
+            {
+              "id": "anime_painterly",
+              "prompt": "精细日系背景与概括厚涂结合，蓝天白云、嫩绿山野和珊瑚暖色点缀"
+            }
+          ],
+          "light_nik_daily_city": [
+            {
+              "id": "morning_clear",
+              "prompt": "清晨侧光与清亮空气，远方轮廓柔和递进"
+            },
+            {
+              "id": "late_afternoon",
+              "prompt": "午后暖阳在墙面和树叶上留下清楚投影"
+            },
+            {
+              "id": "blue_hour_windows",
+              "prompt": "蓝调傍晚的天空配少量暖窗与路灯，环境仍然清楚可读"
+            }
+          ],
+          "palette_nik_daily_city": [
+            {
+              "id": "blue_green_warm_wall",
+              "prompt": "细致背景绘画，天蓝、叶绿与米黄组成清新主色，生活细节点色有序"
+            },
+            {
+              "id": "rose_orange_lilac",
+              "prompt": "细腻数码笔触，暖橙与玫瑰色相衬，淡紫阴影保持空间层次"
+            },
+            {
+              "id": "teal_navy_amber",
+              "prompt": "精细环境设色，青蓝与深蓝形成冷色层次，少量琥珀色作暖色点缀"
+            }
+          ],
+          "light_pippi_painterly_water": [
+            {
+              "id": "dappled_day",
+              "prompt": "树影斑驳的日光，亮面和暗部保持扎实绘画层次"
+            },
+            {
+              "id": "warm_low_sun",
+              "prompt": "低角度暖阳与冷色暗部相衬，边缘受光柔和"
+            },
+            {
+              "id": "lantern_pool",
+              "prompt": "暖窗与灯笼形成局部光池，深冷夜影包围生活细节"
+            }
+          ],
+          "palette_pippi_painterly_water": [
+            {
+              "id": "forest_teal_gold",
+              "prompt": "厚薄结合的可见笔触，深翠、青蓝与金色点色形成清楚冷暖关系"
+            },
+            {
+              "id": "autumn_coral_cobalt",
+              "prompt": "块面与细节相间的绘画笔触，珊瑚红、金橙与钴蓝形成鲜明但有主次的色彩"
+            },
+            {
+              "id": "snow_lilac_amber",
+              "prompt": "细腻绘画笔触，灰紫阴影、柔蓝暗部与淡金高光构成安静冬日色彩"
+            }
+          ],
+          "light_pasoputi_emotional_space": [
+            {
+              "id": "clear_cloud_light",
+              "prompt": "清亮天空中的散射天光，远景通透，生活细节有柔和明暗"
+            },
+            {
+              "id": "warm_horizon",
+              "prompt": "低位暖光映照受光面，冷色柔影保留空间层次"
+            },
+            {
+              "id": "moon_and_practical",
+              "prompt": "星月微光与窗灯、路灯的局部暖光相衬，夜景细节有序"
+            }
+          ],
+          "palette_pasoputi_emotional_space": [
+            {
+              "id": "teal_cream",
+              "prompt": "柔和数码笔触与清楚局部边缘，青蓝与乳白为主，少量浅金点色"
+            },
+            {
+              "id": "violet_rose",
+              "prompt": "情绪鲜明的背景设色，紫罗兰与玫瑰色相衬，冷青暗部提供层次"
+            },
+            {
+              "id": "indigo_amber",
+              "prompt": "细腻环境绘画，靛蓝与柔和琥珀形成冷暖关系，青色反射衬托空间"
+            }
+          ],
+          "light_bocuden_clear_background": [
+            {
+              "id": "crisp_daylight",
+              "prompt": "清晰日光与自然投影，受光和背光层次干净"
+            },
+            {
+              "id": "soft_evening",
+              "prompt": "柔和低位夕光与冷色阴影，远景逐层变淡"
+            },
+            {
+              "id": "star_moon_fill",
+              "prompt": "星月微光衬托暗色地景，远处灯火只作小面积点色"
+            },
+            {
+              "id": "wilderness_light",
+              "prompt": "Low sunset light illuminates broad open ground and luminous cloud edges, with long delicate shadows and readable cool distance"
+            }
+          ],
+          "palette_bocuden_clear_background": [
+            {
+              "id": "sky_blue_leaf",
+              "prompt": "细致背景笔触，天蓝、云白和叶绿形成清爽色阶"
+            },
+            {
+              "id": "pale_gold_lilac",
+              "prompt": "清楚而柔和的背景设色，浅金、灰紫和柔蓝组成温和冷暖层次"
+            },
+            {
+              "id": "navy_cyan_silver",
+              "prompt": "细腻夜景设色，深海蓝、青色与银白形成深浅有序的星夜色彩"
+            },
+            {
+              "id": "wilderness_palette_1",
+              "prompt": "Visible thick-paint brushwork, golden ochre, amber and pale peach light balanced with cool lavender shadows"
+            },
+            {
+              "id": "wilderness_palette_2",
+              "prompt": "Broad expressive painted planes, warm copper and coral light, soft cream highlights and deep muted blue-violet shadows"
+            },
+            {
+              "id": "wilderness_palette_3",
+              "prompt": "Soft layered oil-like strokes, pale gold and dusty rose light over ochre midtones with restrained indigo shadows"
+            }
+          ],
+          "light_banishment_blue_surreal": [
+            {
+              "id": "clear_noon",
+              "prompt": "清澈日光与柔青阴影，真实建筑和幻想空间有一致受光关系"
+            },
+            {
+              "id": "low_sunset",
+              "prompt": "夕阳暖光与冷影相衬，强光仅集中在少量视觉核心"
+            },
+            {
+              "id": "deep_blue_night",
+              "prompt": "深蓝夜色中少量橙金光点衬托幻想倒影，暗部保持可读"
+            }
+          ],
+          "palette_banishment_blue_surreal": [
+            {
+              "id": "cobalt_white_rust",
+              "prompt": "精细环境插画，钴蓝、云白与锈橙形成强而有序的色彩对比"
+            },
+            {
+              "id": "indigo_cyan_amber",
+              "prompt": "细致数码绘画，靛蓝、青蓝与琥珀点色衬托空间错位"
+            },
+            {
+              "id": "jade_coral",
+              "prompt": "清楚边缘与柔和色阶结合，青绿、浅青与淡珊瑚形成轻盈异境色彩"
+            }
+          ],
+          "light_hotaka_lit_city_corner": [
+            {
+              "id": "warm_shop_blue_fill",
+              "prompt": "暖色店灯与蓝色夜间环境光相衬，亮部集中且保有细节"
+            },
+            {
+              "id": "streetlight_reflection",
+              "prompt": "夜间路灯与湿润表面的自然反光形成细小光带，暗部层次清楚"
+            },
+            {
+              "id": "late_windows_moon",
+              "prompt": "深夜窗灯与柔弱月光共同刻画建筑，远处灯火少而有序"
+            }
+          ],
+          "palette_hotaka_lit_city_corner": [
+            {
+              "id": "navy_amber_brown",
+              "prompt": "细致环境设色，深蓝、琥珀与深棕组成安静而有温度的夜景"
+            },
+            {
+              "id": "bluegray_teal_yellow",
+              "prompt": "柔和笔触与清楚建筑边缘，蓝灰、青绿与少量暖黄相衬"
+            },
+            {
+              "id": "indigo_white_brick",
+              "prompt": "层次清楚的夜景绘画，靛紫、暖白与暗砖红形成有序冷暖关系"
+            }
+          ],
+          "light_houtei9_white_fantasy": [
+            {
+              "id": "slant_beam",
+              "prompt": "斜向日光束与冷青环境光相衬，细小材质和植物保留清楚层次"
+            },
+            {
+              "id": "bright_diffuse",
+              "prompt": "明亮柔和的漫射天光，白色受光面保有细节而不过曝"
+            },
+            {
+              "id": "moon_cyan_fill",
+              "prompt": "微弱月光与少量青色室内灯相衬，白色空间在夜色中保有柔和体积"
+            }
+          ],
+          "palette_houtei9_white_fantasy": [
+            {
+              "id": "ivory_gray_green",
+              "prompt": "三维空间感与细腻厚涂结合，象牙白、冷灰与嫩绿形成明亮细节层次"
+            },
+            {
+              "id": "pinkwhite_cyan_lilac",
+              "prompt": "精细材质和可见绘画笔触，粉白、浅青与淡紫组成轻盈色阶"
+            },
+            {
+              "id": "porcelain_navy_cyan",
+              "prompt": "细腻环境绘画，瓷白、深海蓝与少量青色点光构成安静夜景"
+            }
+          ],
+          "light_pentaro_star_night_reference": [
+            {
+              "id": "starlight_faint_moon",
+              "prompt": "星光与极弱月色保留夜空深度，环境亮度克制，星点不铺满画面"
+            },
+            {
+              "id": "deep_night_warm_windows",
+              "prompt": "深蓝暮夜与少量暖窗灯相衬，天空明暗渐变自然"
+            },
+            {
+              "id": "moon_soft_reflection",
+              "prompt": "柔弱月光与湿润表面的细小反光形成安静层次，地景不抢占夜空"
+            },
+            {
+              "id": "wilderness_light",
+              "prompt": "Natural star light and extremely faint moon fill softly reveal the empty ground while preserving deep night-sky gradients"
+            }
+          ],
+          "palette_pentaro_star_night_reference": [
+            {
+              "id": "navy_starwhite_amber",
+              "prompt": "夜景环境插画感，海军蓝、星光白与少量琥珀色构成清楚冷暖关系"
+            },
+            {
+              "id": "indigo_grayblue_pink",
+              "prompt": "柔和数码夜景，靛紫、灰蓝与淡粉形成安静且层次丰富的天空色阶"
+            },
+            {
+              "id": "deepteal_silver_orange",
+              "prompt": "细腻夜景设色，深青、银白与柔橙点色形成自然明暗节奏"
+            },
+            {
+              "id": "wilderness_palette_1",
+              "prompt": "Soft broad brushwork, deep indigo, cobalt and lavender-blue sky gradients, with delicate silvery-blue highlights"
+            },
+            {
+              "id": "wilderness_palette_2",
+              "prompt": "Refined oil-like strokes, deep navy and cool teal gradients, restrained violet transitions and natural silver-white star light"
+            },
+            {
+              "id": "wilderness_palette_3",
+              "prompt": "Layered painterly texture, deep blue-violet and muted cyan gradients with soft gray-blue ground and faint pale-lilac highlights"
+            }
+          ]
+        },
+        "recipes": [
+          {
+            "prompt": "云层之间层叠的空中群岛城，桥梁与小型飞行器连接高低建筑，远方仍能看见广阔天空",
+            "prefixId": "hathway_worldbuilding",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_hathway_worldbuilding": [
+                "*"
+              ],
+              "palette_hathway_worldbuilding": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "峡谷之上的多层巨拱城市，细小楼宇沿拱桥生长，河流和云海交错延伸",
+            "prefixId": "hathway_worldbuilding",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_hathway_worldbuilding": [
+                "*"
+              ],
+              "palette_hathway_worldbuilding": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "群山间的巨型天文观测城，圆顶、齿轮和管道沿山势展开，建筑与云层共同形成纵深",
+            "prefixId": "hathway_worldbuilding",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_hathway_worldbuilding": [
+                "*"
+              ],
+              "palette_hathway_worldbuilding": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "植物与精密机械共生的高塔花园城，悬桥、温室和树冠层层交叠，地面河道清楚可见",
+            "prefixId": "hathway_worldbuilding",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_hathway_worldbuilding": [
+                "*"
+              ],
+              "palette_hathway_worldbuilding": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "A silent, empty, abandoned railway terminal has become a mature forest garden. Large trees root through cracked concrete platforms, and rusty unused rails disappear beneath shallow clear water between the platforms. Ivy and moss reclaim the broken canopy, while roof openings reveal the distant sky and allow natural light to reach the water. The surviving old signboards are plain weathered surfaces among ruined pillars. Fragmented station structures, clear reflections and densely layered vegetation create a quiet railway ruin reclaimed by nature",
+            "prefixId": "tokyo_genso_reclaimed_city",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_tokyo_genso_reclaimed_city": [
+                "*"
+              ],
+              "palette_tokyo_genso_reclaimed_city": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "河道取代街道的旧城区，水边站台和残存轨道沿河延伸，低处建筑被树冠包围",
+            "prefixId": "tokyo_genso_reclaimed_city",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_tokyo_genso_reclaimed_city": [
+                "*"
+              ],
+              "palette_tokyo_genso_reclaimed_city": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "高楼之间形成层层森林花园，透明水面映出废弃立交与树冠，城市轮廓安静地延伸到远处",
+            "prefixId": "tokyo_genso_reclaimed_city",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_tokyo_genso_reclaimed_city": [
+                "*"
+              ],
+              "palette_tokyo_genso_reclaimed_city": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "被海水与绿色植物覆盖的海边旧城，残存电车轨道和屋顶花园穿过碧蓝海湾",
+            "prefixId": "tokyo_genso_reclaimed_city",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_tokyo_genso_reclaimed_city": [
+                "*"
+              ],
+              "palette_tokyo_genso_reclaimed_city": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "蓝天中的巨大积云俯临开阔海岸，浅滩与远处岛屿构成辽阔空间",
+            "prefixId": "mocha_atmosphere",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_mocha_atmosphere": [
+                "morning_cloud",
+                "sunlit_summer",
+                "rose_sunset"
+              ],
+              "palette_mocha_atmosphere": [
+                "blue_cyan",
+                "lavender_peach",
+                "teal_gold"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "起伏高山草甸延伸到远方云海和山峰，花草在近景摇曳，远处可有极小旅行者背影",
+            "prefixId": "mocha_atmosphere",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_mocha_atmosphere": [
+                "morning_cloud",
+                "sunlit_summer",
+                "rose_sunset"
+              ],
+              "palette_mocha_atmosphere": [
+                "blue_cyan",
+                "lavender_peach",
+                "teal_gold"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "水天一色的浅海上，一列小比例原创列车沿真实连续的轨道缓缓驶向远方，积云完整映入水面",
+            "prefixId": "mocha_atmosphere",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_mocha_atmosphere": [
+                "morning_cloud",
+                "sunlit_summer",
+                "rose_sunset"
+              ],
+              "palette_mocha_atmosphere": [
+                "blue_cyan",
+                "lavender_peach",
+                "teal_gold"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "广阔山野中的孤立小型天文台，群山与层叠云幕包围建筑，天台可有微小背影点景",
+            "prefixId": "mocha_atmosphere",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_mocha_atmosphere": [
+                "morning_cloud",
+                "sunlit_summer",
+                "rose_sunset"
+              ],
+              "palette_mocha_atmosphere": [
+                "blue_cyan",
+                "lavender_peach",
+                "teal_gold"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "An immense uninhabited summer grassland stretches toward a very distant low horizon. Broad softly billowing cumulus clouds rise above gently rolling grass that forms wide uninterrupted planes, fading into a pale sea of clouds beyond the far hills. A few short individual grass strokes sit near the bottom edge; the foreground stays sparse and visually open. The view remains unobstructed from the nearest meadow to the farthest low ridge. Full-bleed scenery consisting only of open grassland, distant hills, sky and daylight clouds",
+            "prefixId": "mocha_atmosphere_wilderness_summer_open_grassland",
+            "weight": 15,
+            "choices": {
+              "composition": [
+                "open_level_vista",
+                "open_low_horizon"
+              ],
+              "light_mocha_atmosphere": [
+                "wilderness_light"
+              ],
+              "palette_mocha_atmosphere": [
+                "wilderness_palette_1",
+                "wilderness_palette_2",
+                "wilderness_palette_3"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "两座山体之间的巨型石拱与桥城，峡谷、奔流与云层延伸到远处",
+            "prefixId": "waisshu_grand_scale",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_waisshu_grand_scale": [
+                "breakthrough_sun",
+                "clear_noon",
+                "golden_horizon"
+              ],
+              "palette_waisshu_grand_scale": [
+                "azure_stone",
+                "emerald_ochre",
+                "violet_gold"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "群山深处的瀑布城堡，建筑顺着高低岩壁展开，多段瀑布汇入下方青色湖泊",
+            "prefixId": "waisshu_grand_scale",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_waisshu_grand_scale": [
+                "breakthrough_sun",
+                "clear_noon",
+                "golden_horizon"
+              ],
+              "palette_waisshu_grand_scale": [
+                "azure_stone",
+                "emerald_ochre",
+                "violet_gold"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "云海上方的巨大悬浮山体与古老庭院，桥梁连接层叠平台，近景植被与远处云层清楚分离",
+            "prefixId": "waisshu_grand_scale",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_waisshu_grand_scale": [
+                "breakthrough_sun",
+                "clear_noon",
+                "golden_horizon"
+              ],
+              "palette_waisshu_grand_scale": [
+                "azure_stone",
+                "emerald_ochre",
+                "violet_gold"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "海边悬崖上的巨型白石花园建筑，拱廊顺着地势延伸，深蓝海湾与层叠云幕包围主景",
+            "prefixId": "waisshu_grand_scale",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_waisshu_grand_scale": [
+                "breakthrough_sun",
+                "clear_noon",
+                "golden_horizon"
+              ],
+              "palette_waisshu_grand_scale": [
+                "azure_stone",
+                "emerald_ochre",
+                "violet_gold"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "A vast uninhabited upland river valley opens toward a remote low mountain rim beneath an expansive sky. A slender winding river crosses wide gently undulating plateau grasslands, becoming smaller as it reaches the distant haze. Low landforms leave the broad valley open; near ground is a simple airy plane of pale grass and earthy painted texture, with sparse detail close to the ground. Continuous open sightlines and soft cloud shadows convey monumental emptiness. Full-bleed scenery containing only the plateau, river, distant low mountains and daylight sky",
+            "prefixId": "waisshu_grand_scale_wilderness_wide_upland_river",
+            "weight": 15,
+            "choices": {
+              "composition": [
+                "open_level_vista",
+                "open_low_horizon"
+              ],
+              "light_waisshu_grand_scale": [
+                "wilderness_light"
+              ],
+              "palette_waisshu_grand_scale": [
+                "wilderness_palette_1",
+                "wilderness_palette_2",
+                "wilderness_palette_3"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "透明水渠贯穿层叠幻想花园城，彩色玻璃廊桥、花树与细致装饰建筑围绕清澈水面",
+            "prefixId": "fujiwara_color_fantasy",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_fujiwara_color_fantasy": [
+                "*"
+              ],
+              "palette_fujiwara_color_fantasy": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "盛放花树包围山间幻想铁路与小型车站，花瓣、清澈溪流和拱廊形成有序的色彩层次",
+            "prefixId": "fujiwara_color_fantasy",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_fujiwara_color_fantasy": [
+                "*"
+              ],
+              "palette_fujiwara_color_fantasy": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "空中花园岛屿之间悬挂晶莹桥廊，繁花与细致亭阁点缀云海上方的平台",
+            "prefixId": "fujiwara_color_fantasy",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_fujiwara_color_fantasy": [
+                "*"
+              ],
+              "palette_fujiwara_color_fantasy": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "花海包围的瀑布宫苑，透明水流穿过彩色亭阁和梯状花园，远处群山保持空间层次",
+            "prefixId": "fujiwara_color_fantasy",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_fujiwara_color_fantasy": [
+                "*"
+              ],
+              "palette_fujiwara_color_fantasy": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "晴空白云下的海岸坡道与远方海面，电线或低矮房屋只作小比例环境点景",
+            "prefixId": "shinkai_sky_light",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_shinkai_sky_light": [
+                "bright_summer",
+                "sunshower",
+                "sunset_glow"
+              ],
+              "palette_shinkai_sky_light": [
+                "summer_blue",
+                "peach_violet",
+                "turquoise_rose"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "开阔浅水与天空连成一片，小型原创列车沿连续的海边轨道进入远景，白云倒影与轨道透视准确",
+            "prefixId": "shinkai_sky_light",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_shinkai_sky_light": [
+                "bright_summer",
+                "sunshower",
+                "sunset_glow"
+              ],
+              "palette_shinkai_sky_light": [
+                "summer_blue",
+                "peach_violet",
+                "turquoise_rose"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "樱花树下的郊外铁路与小车站，远方山丘和巨大云体展开，花瓣只作少量点缀",
+            "prefixId": "shinkai_sky_light",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_shinkai_sky_light": [
+                "bright_summer",
+                "sunshower",
+                "sunset_glow"
+              ],
+              "palette_shinkai_sky_light": [
+                "summer_blue",
+                "peach_violet",
+                "turquoise_rose"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "河岸旁安静的地方车站，桥梁、轨道与水面延伸到远处，天空占画面大部分",
+            "prefixId": "shinkai_sky_light",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_shinkai_sky_light": [
+                "bright_summer",
+                "sunshower",
+                "sunset_glow"
+              ],
+              "palette_shinkai_sky_light": [
+                "summer_blue",
+                "peach_violet",
+                "turquoise_rose"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "An endless undeveloped coast and open sea stretch beneath a very distant low horizon. Widely spaced softly modeled clouds fill the expansive sky. A thin sweeping ribbon of pale sand meets transparent shallows and a vast open sea; long horizontal bands of gentle ripples reinforce the water's breadth and stillness. The near shore remains open and sparsely textured, allowing the eye to travel freely along the beach and out to the far sea. Distant water and sky soften together through clear atmospheric haze. Full-bleed scenery consisting only of sand, sea, sky and daytime clouds",
+            "prefixId": "shinkai_sky_light_wilderness_undeveloped_open_coast",
+            "weight": 15,
+            "choices": {
+              "composition": [
+                "open_level_vista",
+                "open_low_horizon"
+              ],
+              "light_shinkai_sky_light": [
+                "wilderness_light"
+              ],
+              "palette_shinkai_sky_light": [
+                "wilderness_palette_1",
+                "wilderness_palette_2",
+                "wilderness_palette_3"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "A monumental lost garden city climbs through many different heights along immense vegetated cliffs above a broad clear inlet. Weathered pale-stone terraces, slender colonnades, ancient towers and open arcades form a densely layered architectural landscape. Enormous stone arches, aqueducts and delicate bridges span the deep water; narrow waterfalls descend from the terraces. Natural vines and trees reclaim the masonry, while submerged columns and pale rock shelves are visible beneath the transparent water. Tiny distant towers establish dramatic vertical scale",
+            "prefixId": "reference_grand_garden_world",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_reference_grand_garden_world": [
+                "*"
+              ],
+              "palette_reference_grand_garden_world": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "A broad ribbon of transparent water flows in one continuous sweeping curve above an immense sea of volumetric clouds. Its banks are seamless, fluidly curved opalescent crystal, fused into tall translucent mineral formations along one side; the other side opens toward layered clouds and a few distant vegetated sky islands. Light refracts through the crystal into delicate pearlescent color on the curved edges. Clear water reveals graceful mineral ribs beneath fine ripples and coherent reflections. Small natural flowers and trailing vines grow from occasional crystal crevices, creating a luminous sky-garden waterway with breathtaking height and open space",
+            "prefixId": "reference_grand_garden_world",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_reference_grand_garden_world": [
+                "*"
+              ],
+              "palette_reference_grand_garden_world": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "Immense coastal stone arches surround an island garden with densely layered pale-stone arcades and weathered ruins at different heights. Natural foliage and trailing vines reclaim the masonry; delicate waterfalls connect the terraces to the clear sea. Transparent shallows reveal submerged columns and pale rock shelves, while the distant coast and large volumetric clouds establish monumental scale and atmospheric depth",
+            "prefixId": "reference_grand_garden_world",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_reference_grand_garden_world": [
+                "*"
+              ],
+              "palette_reference_grand_garden_world": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "A tall abandoned stone arcade has become a lush flower garden. Naturally growing flowers, moss and hanging vines reclaim intricately weathered pillars and vaults. Clear shallow water covers the floor, revealing submerged paving and reflecting the plants, stone arches and the sky beyond. The passage opens toward expansive wild mountains and monumental clouds, with detailed nearby stone and foliage receding into a luminous, immersive distance",
+            "prefixId": "reference_grand_garden_world",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "high_oblique",
+                "low_upward",
+                "foreground_frame",
+                "leading_depth"
+              ],
+              "light_reference_grand_garden_world": [
+                "*"
+              ],
+              "palette_reference_grand_garden_world": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "安静住宅街转角，店铺窗台与遮阳棚相邻，盆栽和电线沿坡道延伸",
+            "prefixId": "nik_daily_city",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "intimate_corner",
+                "architecture_crop",
+                "leading_depth"
+              ],
+              "light_nik_daily_city": [
+                "*"
+              ],
+              "palette_nik_daily_city": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "小型城市车站外的街道，地方电车从远处穿过，细小行人融入环境，街道纵深清楚",
+            "prefixId": "nik_daily_city",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "intimate_corner",
+                "architecture_crop",
+                "leading_depth"
+              ],
+              "light_nik_daily_city": [
+                "*"
+              ],
+              "palette_nik_daily_city": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "旧街阶梯旁的花店、藤架与密集花盆，石墙和斜屋顶层层错落",
+            "prefixId": "nik_daily_city",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "intimate_corner",
+                "architecture_crop",
+                "leading_depth"
+              ],
+              "light_nik_daily_city": [
+                "*"
+              ],
+              "palette_nik_daily_city": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "临海小城的坡道与屋顶之间露出海面，街边绿植衬托远方港湾",
+            "prefixId": "nik_daily_city",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "leading_depth",
+                "intimate_corner"
+              ],
+              "light_nik_daily_city": [
+                "*"
+              ],
+              "palette_nik_daily_city": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "枫叶与岩石夹住林间溪流，清亮水面映出天空和树冠",
+            "prefixId": "pippi_painterly_water",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "foreground_frame",
+                "leading_depth",
+                "intimate_corner"
+              ],
+              "light_pippi_painterly_water": [
+                "dappled_day",
+                "warm_low_sun"
+              ],
+              "palette_pippi_painterly_water": [
+                "forest_teal_gold",
+                "autumn_coral_cobalt"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "藤蔓覆盖的旧石门，门外清澈水池与林地向远方展开",
+            "prefixId": "pippi_painterly_water",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "foreground_frame",
+                "leading_depth",
+                "intimate_corner"
+              ],
+              "light_pippi_painterly_water": [
+                "dappled_day",
+                "warm_low_sun"
+              ],
+              "palette_pippi_painterly_water": [
+                "forest_teal_gold",
+                "autumn_coral_cobalt"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "窄小有棚集市与木屋窗灯，果蔬和无字木牌构成细致生活环境",
+            "prefixId": "pippi_painterly_water",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "intimate_corner",
+                "architecture_crop",
+                "leading_depth"
+              ],
+              "light_pippi_painterly_water": [
+                "lantern_pool"
+              ],
+              "palette_pippi_painterly_water": [
+                "forest_teal_gold",
+                "autumn_coral_cobalt"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "安静冬林小径，积雪间穿过细流与枯枝，远方小屋只作小比例点景",
+            "prefixId": "pippi_painterly_water",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "foreground_frame",
+                "leading_depth",
+                "intimate_corner"
+              ],
+              "light_pippi_painterly_water": [
+                "dappled_day",
+                "warm_low_sun"
+              ],
+              "palette_pippi_painterly_water": [
+                "snow_lilac_amber"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "屋顶栏杆与安静城市上空展开辽阔星空，远方窗灯形成细小暖色点景",
+            "prefixId": "pasoputi_emotional_space",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "sky_vertical",
+                "rooftop_upward"
+              ],
+              "light_pasoputi_emotional_space": [
+                "moon_and_practical"
+              ],
+              "palette_pasoputi_emotional_space": [
+                "violet_rose",
+                "indigo_amber"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "小桥跨过窄水道，街角店铺与细小路人自然同场，河面倒影延伸进街道深处",
+            "prefixId": "pasoputi_emotional_space",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "intimate_corner",
+                "leading_depth",
+                "reflection_detail"
+              ],
+              "light_pasoputi_emotional_space": [
+                "*"
+              ],
+              "palette_pasoputi_emotional_space": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "住宅区中的安静归途，电线、远山与宽阔天空相互衬托，生活细节集中于街边",
+            "prefixId": "pasoputi_emotional_space",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "leading_depth",
+                "intimate_corner"
+              ],
+              "light_pasoputi_emotional_space": [
+                "*"
+              ],
+              "palette_pasoputi_emotional_space": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "温泉街的小巷中蒸汽轻轻升起，木质店面与局部暖灯组织宁静空间",
+            "prefixId": "pasoputi_emotional_space",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "intimate_corner",
+                "architecture_crop",
+                "leading_depth"
+              ],
+              "light_pasoputi_emotional_space": [
+                "moon_and_practical"
+              ],
+              "palette_pasoputi_emotional_space": [
+                "violet_rose",
+                "indigo_amber"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "校园旁的住宅街转角，围墙与树影相邻，远处校舍形成低矮背景",
+            "prefixId": "bocuden_clear_background",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "intimate_corner",
+                "leading_depth",
+                "foreground_frame"
+              ],
+              "light_bocuden_clear_background": [
+                "crisp_daylight",
+                "soft_evening"
+              ],
+              "palette_bocuden_clear_background": [
+                "sky_blue_leaf",
+                "pale_gold_lilac"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "城市边缘的河堤步道，桥梁栏杆与两岸低楼延伸到远处，水面干净清亮",
+            "prefixId": "bocuden_clear_background",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "intimate_corner",
+                "leading_depth",
+                "foreground_frame"
+              ],
+              "light_bocuden_clear_background": [
+                "crisp_daylight",
+                "soft_evening"
+              ],
+              "palette_bocuden_clear_background": [
+                "sky_blue_leaf",
+                "pale_gold_lilac"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "海边草坡与小屋衬托清澈海面，层叠云和远方海岸保持自然空气透视",
+            "prefixId": "bocuden_clear_background",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "grand_vista",
+                "leading_depth",
+                "foreground_frame"
+              ],
+              "light_bocuden_clear_background": [
+                "crisp_daylight",
+                "soft_evening"
+              ],
+              "palette_bocuden_clear_background": [
+                "sky_blue_leaf",
+                "pale_gold_lilac"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "山坡小路与低矮观景栏杆下方是远镇灯火，上方辽阔星空占据主体",
+            "prefixId": "bocuden_clear_background",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "sky_vertical",
+                "low_upward"
+              ],
+              "light_bocuden_clear_background": [
+                "star_moon_fill"
+              ],
+              "palette_bocuden_clear_background": [
+                "navy_cyan_silver"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "A boundless empty wilderness of low dry grass and gently rolling earth stretches toward a tiny distant horizon at sunset. Broad luminous cloud masses fill the vast sky. A small setting sun sits close to the far horizon, giving wide land planes long delicate bands of light. Sparse short grass strokes and softly modeled earth remain close to the bottom edge, keeping the distant view uninterrupted. Large calm shapes and gentle atmospheric recession convey solitude. Full-bleed scenery containing only open wilderness, a distant low ridge and sunset sky",
+            "prefixId": "bocuden_clear_background_wilderness_golden_open_wilderness",
+            "weight": 15,
+            "choices": {
+              "composition": [
+                "open_level_vista",
+                "open_low_horizon"
+              ],
+              "light_bocuden_clear_background": [
+                "wilderness_light"
+              ],
+              "palette_bocuden_clear_background": [
+                "wilderness_palette_1",
+                "wilderness_palette_2",
+                "wilderness_palette_3"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "安静十字路口与低矮城市建筑，熟悉街道上方展开异常辽阔的天空，细节疏密有序",
+            "prefixId": "banishment_blue_surreal",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "intimate_corner",
+                "architecture_crop",
+                "leading_depth"
+              ],
+              "light_banishment_blue_surreal": [
+                "clear_noon",
+                "low_sunset"
+              ],
+              "palette_banishment_blue_surreal": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "锈色楼梯转角连接一段倒置天空，墙面、栏杆和地面透视连贯，天空错位只发生在幻想入口",
+            "prefixId": "banishment_blue_surreal",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "intimate_corner",
+                "architecture_crop",
+                "leading_depth"
+              ],
+              "light_banishment_blue_surreal": [
+                "clear_noon",
+                "low_sunset"
+              ],
+              "palette_banishment_blue_surreal": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "街角双面凸镜映出星空与少量橙金色游鱼，真实街道与幻想倒影形成清楚层次",
+            "prefixId": "banishment_blue_surreal",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "architecture_crop",
+                "reflection_detail"
+              ],
+              "light_banishment_blue_surreal": [
+                "deep_blue_night"
+              ],
+              "palette_banishment_blue_surreal": [
+                "cobalt_white_rust",
+                "indigo_cyan_amber"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "街边透明玻璃空间里生长微型季节花园，水面、植被和城市一角相互映照，形成尺度错位的幻想环境",
+            "prefixId": "banishment_blue_surreal",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "architecture_crop",
+                "reflection_detail"
+              ],
+              "light_banishment_blue_surreal": [
+                "clear_noon",
+                "low_sunset"
+              ],
+              "palette_banishment_blue_surreal": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "从隧道口望向暖灯照亮的窄街，近处暗色拱口和远方店面形成连续纵深",
+            "prefixId": "hotaka_lit_city_corner",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "intimate_corner",
+                "architecture_crop",
+                "leading_depth"
+              ],
+              "light_hotaka_lit_city_corner": [
+                "*"
+              ],
+              "palette_hotaka_lit_city_corner": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "小店檐下的雨夜街角，湿润路面反射窗光，建筑细节与遮雨结构自然同场",
+            "prefixId": "hotaka_lit_city_corner",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "intimate_corner",
+                "architecture_crop",
+                "leading_depth"
+              ],
+              "light_hotaka_lit_city_corner": [
+                "*"
+              ],
+              "palette_hotaka_lit_city_corner": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "阶梯巷道的转角与高处窗光相邻，栏杆、墙面和旧街屋层层错落",
+            "prefixId": "hotaka_lit_city_corner",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "intimate_corner",
+                "architecture_crop",
+                "leading_depth"
+              ],
+              "light_hotaka_lit_city_corner": [
+                "*"
+              ],
+              "palette_hotaka_lit_city_corner": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "旧街屋屋檐之间露出一小片星空，窗灯照亮近处建筑边缘，城市局部仍为主要环境",
+            "prefixId": "hotaka_lit_city_corner",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "rooftop_upward",
+                "architecture_crop",
+                "intimate_corner"
+              ],
+              "light_hotaka_lit_city_corner": [
+                "*"
+              ],
+              "palette_hotaka_lit_city_corner": [
+                "*"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "破墙透光的旧储物柜房间长出花草，白色墙面、柜门和碎砖构成安静遗境",
+            "prefixId": "houtei9_white_fantasy",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "architecture_crop",
+                "intimate_corner",
+                "foreground_frame"
+              ],
+              "light_houtei9_white_fantasy": [
+                "slant_beam",
+                "bright_diffuse"
+              ],
+              "palette_houtei9_white_fantasy": [
+                "ivory_gray_green",
+                "pinkwhite_cyan_lilac"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "藤蔓覆盖的白色阳台与碎砖相邻，近处细腻建筑材质和远处植被形成层次",
+            "prefixId": "houtei9_white_fantasy",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "architecture_crop",
+                "intimate_corner",
+                "foreground_frame"
+              ],
+              "light_houtei9_white_fantasy": [
+                "slant_beam",
+                "bright_diffuse"
+              ],
+              "palette_houtei9_white_fantasy": [
+                "ivory_gray_green",
+                "pinkwhite_cyan_lilac"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "从近景断裂拱廊与建筑缺口窥见安静街角，白石、植物和细小幻想结构自然同场",
+            "prefixId": "houtei9_white_fantasy",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "architecture_crop",
+                "intimate_corner",
+                "foreground_frame"
+              ],
+              "light_houtei9_white_fantasy": [
+                "slant_beam",
+                "bright_diffuse"
+              ],
+              "palette_houtei9_white_fantasy": [
+                "ivory_gray_green",
+                "pinkwhite_cyan_lilac"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "白色观景室的窗边望向星空，近处窗框与室内细节柔和地围住一角夜空",
+            "prefixId": "houtei9_white_fantasy",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "architecture_crop",
+                "rooftop_upward"
+              ],
+              "light_houtei9_white_fantasy": [
+                "moon_cyan_fill"
+              ],
+              "palette_houtei9_white_fantasy": [
+                "porcelain_navy_cyan"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "星空下的岸边小镇，近处海岸与远方细小窗灯衬托辽阔夜空",
+            "prefixId": "pentaro_star_night_reference",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "sky_vertical",
+                "grand_vista",
+                "reflection_detail"
+              ],
+              "light_pentaro_star_night_reference": [
+                "starlight_faint_moon",
+                "deep_night_warm_windows",
+                "moon_soft_reflection"
+              ],
+              "palette_pentaro_star_night_reference": [
+                "navy_starwhite_amber",
+                "indigo_grayblue_pink",
+                "deepteal_silver_orange"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "安静城市屋顶与上方星空相衬，建筑只形成少量前景轮廓与窗灯",
+            "prefixId": "pentaro_star_night_reference",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "sky_vertical",
+                "rooftop_upward"
+              ],
+              "light_pentaro_star_night_reference": [
+                "starlight_faint_moon",
+                "deep_night_warm_windows",
+                "moon_soft_reflection"
+              ],
+              "palette_pentaro_star_night_reference": [
+                "navy_starwhite_amber",
+                "indigo_grayblue_pink",
+                "deepteal_silver_orange"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "山野小路通向远处零散灯火，山坡和植被在星空下保持柔和轮廓",
+            "prefixId": "pentaro_star_night_reference",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "sky_vertical",
+                "grand_vista",
+                "leading_depth"
+              ],
+              "light_pentaro_star_night_reference": [
+                "starlight_faint_moon",
+                "deep_night_warm_windows",
+                "moon_soft_reflection"
+              ],
+              "palette_pentaro_star_night_reference": [
+                "navy_starwhite_amber",
+                "indigo_grayblue_pink",
+                "deepteal_silver_orange"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "窗框或阳台边缘围住一角夜空，近处少量建筑细节与远方星点形成空间层次",
+            "prefixId": "pentaro_star_night_reference",
+            "weight": 1,
+            "choices": {
+              "composition": [
+                "architecture_crop",
+                "rooftop_upward"
+              ],
+              "light_pentaro_star_night_reference": [
+                "starlight_faint_moon",
+                "deep_night_warm_windows",
+                "moon_soft_reflection"
+              ],
+              "palette_pentaro_star_night_reference": [
+                "navy_starwhite_amber",
+                "indigo_grayblue_pink",
+                "deepteal_silver_orange"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          },
+          {
+            "prompt": "A vast empty moorland lies beneath an immense natural star-filled night sky. A subtle milky band and uneven clusters of small stars stretch across the deep open sky above a thin low distant ridge. The ground is a wide continuous plane of low grass and gentle undulations, softly readable under faint reflected sky light. A few small grass strokes rest along the bottom edge, leaving the view open to the remote horizon. Vast breathing space and calm uninterrupted sightlines convey solitude. Full-bleed scenery consisting only of open moorland, a distant low ridge and a natural starry sky",
+            "prefixId": "pentaro_star_night_reference_wilderness_starry_empty_moorland",
+            "weight": 15,
+            "choices": {
+              "composition": [
+                "open_level_vista",
+                "open_low_horizon"
+              ],
+              "light_pentaro_star_night_reference": [
+                "wilderness_light"
+              ],
+              "palette_pentaro_star_night_reference": [
+                "wilderness_palette_1",
+                "wilderness_palette_2",
+                "wilderness_palette_3"
+              ],
+              "sky": [
+                "*"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

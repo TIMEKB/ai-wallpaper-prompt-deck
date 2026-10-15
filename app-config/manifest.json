@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "configVersion": 9,
+  "configVersion": 10,
   "minAppVersionCode": 54,
-  "configUrl": "https://timekb.github.io/ai-wallpaper-prompt-deck/app-config/configs/app_config_v9.json",
-  "sha256": "82faf74f78f86fcd8c643101d0254eb0bba6e590dc85a883dd15378aa62170d4",
-  "updatedAt": "2026-10-13T10:50:08+00:00",
-  "releaseNote": "Cloud-driven content, native page composition and Manager Picks roulette; compatible optional fields for older apps.",
+  "configUrl": "https://timekb.github.io/ai-wallpaper-prompt-deck/app-config/configs/app_config_v10.json",
+  "sha256": "62ce425af7054d9de3d73d415d8ba0eff9c3a064cb8c088c880faa51c0c8f662",
+  "updatedAt": "2026-10-15T14:28:02+00:00",
+  "releaseNote": "Fix gallery manifest timeout for existing clients; retain cloud-driven content and reviewed gallery separation.",
   "kid": "remote-config-v1",
-  "signature": "D1YTNO01jcuj2cMRmq3_Q7vxGkjBpqCr1J1JOXDR_8U1OP2Xv3LI4K2Fvt2rj_2-h-GLzUkgeauLUebCZ-4JBA"
+  "signature": "7IiFhcAyXUULQh5UghLFeYmFJi_aLqXfpYcGkxuhpE2-FDHjQu5nNmcWRD4rKW-UQ3FaRnmXHl7VS8QaV0BjCw"
 }
